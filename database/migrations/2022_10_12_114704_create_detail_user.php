@@ -13,12 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('type_detail_user', function (Blueprint $table) {
+        Schema::create('detail_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('type_user_id');
+            $table->foreignId('user_id')
+            ->nullable()
+            ->index('fk_detail_user_to_users');
+            $table->foreignId('type_user_id')
+            ->nullable()
+            ->index('fk_detail_user_to_type_user');
             $table->string('contact')->nullable();
-            $table->string('photo')->nullable();
+            $table->longText('photo')->nullable();
             $table->enum('gender',[1,2])->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_detail_user');
+        Schema::dropIfExists('detail_user');
     }
 };

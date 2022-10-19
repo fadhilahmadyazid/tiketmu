@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('config_payment', function (Blueprint $table) {
             $table->id();
-            $table->string('fee');
-            $table->string('pajak');
+            $table->string('fee')->nullable();
+            $table->string('pajak')->nullable();
+            $table->string('total')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
