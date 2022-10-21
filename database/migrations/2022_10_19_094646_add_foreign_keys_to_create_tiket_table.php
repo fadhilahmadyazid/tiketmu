@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('create_tiket', function (Blueprint $table) {
-
+            $table->foreign('tiket_id', 'fk_role_id_to_tiket')->references('id')->on('tiket')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('email_user', 'fk_role_email_to_tiket')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -26,7 +27,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('create_tiket', function (Blueprint $table) {
-
+            $table->dropForeign('fk_role_id_to_tiket');
+            $table->dropForeign('fk_role_email_to_tiket');
         });
     }
 };
