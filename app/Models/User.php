@@ -62,4 +62,21 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function role()
+    {
+        return $this->belongsToMany('App\Models\ManagementAccess\Role');
+    }
+
+    public function detail_user()
+    {
+        // 2 parameter (path model, field foreign key)
+        return $this->hasOne('App\Models\ManagementAccess\DetailUser', 'user_id');
+    }
+
+    public function role_user()
+    {
+        // 2 parameter (path model, field foreign key)
+        return $this->hasMany('App\Models\ManagementAccess\RoleUser', 'user_id');
+    }
 }
