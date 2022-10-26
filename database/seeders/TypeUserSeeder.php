@@ -3,9 +3,6 @@
 namespace Database\Seeders;
 use App\Models\MasterData\TypeUser;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,21 +15,21 @@ class TypeUserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('TypeUser')->insert([
-            'nama' => Str::random(10),
-            'password' => Hash::make('password'),
-            'email' => Str::random(10).'@gmail.com',
-        ]);
 
-        $type_user =[
+        $type_user = [
             [
-                name => 'Admin',
+                'name' => 'Admin',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                name => 'User',
+                'name' => 'User',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
         ];
 
+        // this array $type_user will be insert to table 'type_user'
         TypeUser::insert($type_user);
         }
 }
