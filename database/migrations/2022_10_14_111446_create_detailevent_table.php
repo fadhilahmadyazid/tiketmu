@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tiket', function (Blueprint $table) {
+        Schema::create('detailevent', function (Blueprint $table) {
             $table->id();
-            $table->string('email_user');
-            $table->string('nama_tiket');
-            $table->integer('no_tiket');
+            $table->string('nama_event');
             $table->string('jenis_tiket');
+            $table->string('harga tiket');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tiket');
+        Schema::dropIfExists('detailevent');
     }
 };
