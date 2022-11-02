@@ -6,4 +6,4 @@
       rel="stylesheet')}}"
     />
 
-    <link rel="stylesheet" href="{{ asset('/assets/frontsite/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/assets/Frontsite/style.css') }}" />
