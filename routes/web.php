@@ -21,6 +21,10 @@ route::group([ 'middleware' => ['auth:sanctum', 'verified']],
 function(){
     //return view('dashboard');
 
+    // appointment page
+    Route::get('appointment/ticket/{id}', [AppointmentController::class, 'appointment'])->name('appointment.tiket');
+    Route::resource('appointment', AppointmentController::class);
+
     //Payment page
     route::resource('payment', PaymentController::class);
 });

@@ -22,7 +22,6 @@ class Ticket extends Model
 
      //declare filliable
     protected $fillable =[
-         'email_user',
          'nama_tiket',
          'no_tiket',
          'jenis_tiket',
