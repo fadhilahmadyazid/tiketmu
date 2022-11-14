@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('tiket', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_event');
+            $table->foreignId('nama_event')->nullable()->index('fk_appointment_to_tiket');
+            $table->foreignId('user_id')->nullable()->index('fk_appointment_to_users');
             $table->string('jenis_tiket');
-            $table->string('harga tiket');
+            $table->string('harga_tiket');
+            $table->enum('status', [1,2]);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detailevent');
+        Schema::dropIfExists('tiket');
     }
 };

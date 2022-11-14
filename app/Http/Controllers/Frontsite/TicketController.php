@@ -12,14 +12,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 // use everything here
 // use Gate;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 // use model here
 use App\Models\User;
 use App\Models\Operational\Appointment;
+use App\Models\Operational\Ticket;
 
-
-class AppointmentController extends Controller
+class TicketController extends Controller
 {
      /**
      * Create a new controller instance.
@@ -62,12 +62,12 @@ class AppointmentController extends Controller
     {
         $data = $request->all();
 
-        $appointment = new Appointment;
-        $appointment->user_id = Auth::user()->id;//Auth::user()->id;
-        $appointment->status = 2; // set to waiting payment
-        $appointment->save();
+        $tiket = new Ticket();
+        $tiket->user_id = Auth::user()->id;
+        $tiket->status = 2; // set to waiting payment
+        $tiket->save();
 
-        return redirect()->route('payment.appointment', $appointment->id);
+        return redirect()->route('payment.tiket', $tiket->id);
     }
 
     /**
@@ -113,6 +113,16 @@ class AppointmentController extends Controller
     public function destroy($id)
     {
         return abort(404);
+
+    }
+    // custom
+
+    public function ticket($id)
+    {
+        $user = Doctor::where('id', $id)->first();
+        // $consultation = Consultation::orderBy('name', 'asc')->get();
+
+        return view('pages.frontsite.ticket.index', compact('doctor', 'consultation'));
     }
 
 }

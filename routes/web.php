@@ -22,8 +22,8 @@ function(){
     //return view('dashboard');
 
     // appointment page
-    Route::get('appointment/ticket/{id}', [AppointmentController::class, 'appointment'])->name('appointment.tiket');
-    Route::resource('appointment', AppointmentController::class);
+    Route::get('tiket/tiket/{id}', [TicketController::class, 'appointment'])->name('appointment.tiket');
+    Route::resource('appointment', TicketController::class);
 
     //Payment page
     route::resource('payment', PaymentController::class);

@@ -13,11 +13,11 @@
           class="hidden lg:block lg:absolute lg:z-10 lg:top-0 lg:right-0"
           aria-hidden="true">
           <img
-            src="{{ asset('/assets/frontsite/images/Group 55.png') }}"
+            src="{{ asset('/assets/frontsite/images/Group 55.png')}}"
             class="bg-cover bg-center object-cover object-center max-h-[100px]"
             alt="Hero Image"/>
           <div
-            class="text-center absolute bottom-0 -left-20 -translate-y-14 bg-white px-3 py-1 rounded-xl shadow-2xl">
+            class="text-center absolute bottom-0 -left-20 -translate-y-14 bg-white px-5 py-2 rounded-xl shadow-2xl">
             <h5 class="font-medium text-[#1E2B4F]">Dewa 19</h5>
             {{-- <p class="text-xs text-[#AFAEC3] mt-1">Nutrionist</h1> --}}
             <span class="block text-xs text-[#1E2B4F] font-medium bg-[#F2F6FE] px-4 py-2 rounded-full text-center mt-7">Book Now</span>

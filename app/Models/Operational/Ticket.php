@@ -22,11 +22,27 @@ class Ticket extends Model
 
      //declare filliable
     protected $fillable =[
-         'nama_tiket',
-         'no_tiket',
+         'nama_event',
+         'user_id',
          'jenis_tiket',
+         'harga_tiket',
+         'status',
          'created_at',
          'update_at',
          'deleted_at',
      ];
-}
+
+      public function user()
+      {
+          // 3 parameter (path model, field foreign key, field primary key from table hasMany/hasOne)
+          return $this->belongsTo('App\Models\User', 'user_id', 'id');
+      }
+
+      // one to many
+      public function transaction()
+      {
+          // 2 parameter (path model, field foreign key)
+          return $this->hasOne('App\Models\Operational\Transaction', 'nama_tiket');
+      }
+  }
+

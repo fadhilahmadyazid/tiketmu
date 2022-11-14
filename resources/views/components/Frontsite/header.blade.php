@@ -16,37 +16,29 @@
               <!-- Navigation Menu -->
               <div class="hidden lg:ml-6 lg:flex lg:space-x-12">
 
-                <!-- Active Link:
-                    "text-[#1E2B4F] after:absolute after:content-[''] after:border-b-2
-                    after:border-[#0D63F5] after:w-8/12 after:-translate-x-1/2
-                    after:bottom-3 after:left-1/2 font-semibold",
+                    <!-- Active Link:
+                        "text-[#1E2B4F] after:absolute after:content-[''] after:border-b-2
+                        after:border-[#0D63F5] after:w-8/12 after:-translate-x-1/2
+                        after:bottom-3 after:left-1/2 font-semibold",
 
-                    Default Link:
-                    "text-[#1E2B4F] hover:text-gray-500 inline-flex
-                    items-center px-1 pt-1 text-lg font-medium"
-               -->
-                <a
-                  href="{{route('index') }}"
-                  class="text-[#1E2B4F] relative after:absolute after:content-[''] after:border-b-2 after:border-[#0D63F5] after:w-8/12 after:-translate-x-1/2 after:bottom-3 after:left-1/2 font-semibold inline-flex items-center px-1 text-lg"
-                >
+                        Default Link:
+                        "text-[#1E2B4F] hover:text-gray-500 inline-flex
+                        items-center px-1 pt-1 text-lg font-medium"
+                -->
+                <a href="{{route('index') }}"
+                  class="text-[#1E2B4F] relative after:absolute after:content-[''] after:border-b-2 after:border-[#0D63F5] after:w-8/12 after:-translate-x-1/2 after:bottom-3 after:left-1/2 font-semibold inline-flex items-center px-1 text-lg">
                   Home
                 </a>
-                <a
-                  href="#"
-                  class="text-[#1E2B4F] relative hover:text-gray-500 inline-flex items-center px-1 pt-1 text-lg font-medium"
-                >
+                <a href="#"
+                  class="text-[#1E2B4F] relative hover:text-gray-500 inline-flex items-center px-1 pt-1 text-lg font-medium">
                   Buat Event
                 </a>
-                <a
-                  href="#"
-                  class="text-[#1E2B4F] relative hover:text-gray-500 inline-flex items-center px-1 pt-1 text-lg font-medium"
-                >
+                <a href="#"
+                  class="text-[#1E2B4F] relative hover:text-gray-500 inline-flex items-center px-1 pt-1 text-lg font-medium">
                   Category
                 </a>
-                <a
-                  href="#"
-                  class="text-[#1E2B4F] relative hover:text-gray-500 inline-flex items-center px-1 pt-1 text-lg font-medium"
-                >
+                <a href="#"
+                  class="text-[#1E2B4F] relative hover:text-gray-500 inline-flex items-center px-1 pt-1 text-lg font-medium">
                   Tiketku
                 </a>
               </div>
@@ -55,11 +47,9 @@
 
             <!-- Button (no authenticated) -->
             <div class="hidden lg:ml-10 lg:flex lg:items-center">
-              <a
-                href="{{route('login') }}"
-                class="inline-flex items-center rounded-full text-[#1E2B4F] text-lg font-medium bg-[#F2F6FE] px-10 py-3"
-              >
-                Sign In
+              <a href="{{route('login') }}"
+                    class="inline-flex items-center rounded-full text-[#1E2B4F] text-lg font-medium bg-[#F2F6FE] px-10 py-3">
+                    Sign In
               </a>
             </div>
 

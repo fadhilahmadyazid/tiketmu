@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('appointment', function (Blueprint $table) {
-            $table->foreign('doctor_id', 'fk_appointment_to_tiket')->references('id')->on('doctor')->onUpdate('CASCADE')->onDelete('CASCADE');
+        Schema::table('create_tiket', function (Blueprint $table) {
+            $table->foreign('nama_event', 'fk_appointment_to_tiket')->references('id')->on('tiket')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->foreign('user_id', 'fk_appointment_to_users')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
 
@@ -27,7 +27,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('appointment', function (Blueprint $table) {
+        Schema::table('create_tiket', function (Blueprint $table) {
             $table->dropForeign('fk_appointment_to_tiket');
             $table->dropForeign('fk_appointment_to_users');
         });
