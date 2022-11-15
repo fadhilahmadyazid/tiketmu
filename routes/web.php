@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontsite\LandingController;
 use App\Http\Controllers\Frontsite\PaymentController;
+use App\Http\Controllers\Frontsite\TicketController;
 use Faker\Provider\ar_EG\Payment;
 
 /*
@@ -22,8 +23,8 @@ function(){
     //return view('dashboard');
 
     // appointment page
-    Route::get('tiket/tiket/{id}', [TicketController::class, 'appointment'])->name('appointment.tiket');
-    Route::resource('appointment', TicketController::class);
+    route::get('/ticket/{id}', [TicketController::class, 'ticket'])->name('ticket');
+    route::resource('/ticket', TicketController::class);
 
     //Payment page
     route::resource('payment', PaymentController::class);

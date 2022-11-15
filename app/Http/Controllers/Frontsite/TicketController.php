@@ -20,8 +20,9 @@ use App\Models\Operational\Appointment;
 use App\Models\Operational\Ticket;
 
 class TicketController extends Controller
+
 {
-     /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -36,10 +37,9 @@ class TicketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        return abort(404);
+        return view('pages.frontsite.ticket.index');
     }
 
     /**
@@ -60,14 +60,7 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
-        $tiket = new Ticket();
-        $tiket->user_id = Auth::user()->id;
-        $tiket->status = 2; // set to waiting payment
-        $tiket->save();
-
-        return redirect()->route('payment.tiket', $tiket->id);
+        return abort(404);
     }
 
     /**
@@ -113,16 +106,14 @@ class TicketController extends Controller
     public function destroy($id)
     {
         return abort(404);
-
     }
-    // custom
 
     public function ticket($id)
     {
-        $user = Doctor::where('id', $id)->first();
-        // $consultation = Consultation::orderBy('name', 'asc')->get();
+        $ticket = ticket::where('id', $id)->first();
 
-        return view('pages.frontsite.ticket.index', compact('doctor', 'consultation'));
+        return view('pages.frontsite.ticket.index', compact('ticket'));
     }
-
 }
+
+
