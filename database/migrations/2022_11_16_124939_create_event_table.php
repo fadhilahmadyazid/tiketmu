@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tiket', function (Blueprint $table) {
+        Schema::create('event', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('event_id')->nullable()->index('fk_tiket_to_event');
-            $table->foreignId('nama_event')->nullable()->index('fk_appointment_to_tiket');
-            $table->foreignId('user_id')->nullable()->index('fk_appointment_to_users');
-            $table->string('jenis_tiket');
-            $table->string('harga_tiket');
-            $table->enum('status', [1,2]);
+            $table->foreignId('ticket_id')->nullable()->index('fk_Event_to_Ticket');
+            $table->string('name');
+            $table->string('price');
+            $table->longText('cover')->nullable();
+            $table->longText('description')();
+            $table->string('location')();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tiket');
+        Schema::dropIfExists('event');
     }
 };

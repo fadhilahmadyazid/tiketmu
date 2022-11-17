@@ -32,7 +32,7 @@ class Transaction extends Model
      ];
 
      // one to many
-    public function Ticket()
+    public function ticket()
     {
         // 3 parameter (path model, field foreign key, field primary key from table hasMany/hasOne)
         return $this->belongsTo('App\Models\Operational\Ticket', 'tiket', 'id');

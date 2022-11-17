@@ -24,9 +24,6 @@ return new class extends Migration
             ->on('users')
             ->onDelete('CASCADE')
             ->onUpdate('CASCADE');
-
-
-
         });
     }
 

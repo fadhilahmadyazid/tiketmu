@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Ticket;
-
-
+namespace App\Http\Requests\Event;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class StoreTicketRequest extends FormRequest
+class UpdateEventRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,7 +14,7 @@ class StoreTicketRequest extends FormRequest
      */
     public function authorize()
     {
-        abort_if(Gate::denies('ticket_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('event_update'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }
@@ -29,18 +27,24 @@ class StoreTicketRequest extends FormRequest
     public function rules()
     {
         return [
-            'email_user' => [
+            'ticket_id' => [
                 'required', 'integer',
             ],
-            'nama_tiket' => [
+            'name' => [
                 'required', 'string', 'max:255',
             ],
-            'no_tiket' => [
+            'price' => [
                 'required', 'string', 'max:255',
             ],
-            'jenis_tiket' => [
+            'cover' => [
+                'nullable', 'mimes:jpeg,svg,png', 'max:10000',
+            ],
+            'description' => [
+                'required', 'longtext', 'max:1000000',
+            ],
+            'location' => [
                 'required', 'string', 'max:255',
-            ]
+            ],
             ];
     }
 }

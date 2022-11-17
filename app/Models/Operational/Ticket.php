@@ -22,6 +22,7 @@ class Ticket extends Model
 
      //declare filliable
     protected $fillable =[
+         'event_id',
          'nama_event',
          'user_id',
          'jenis_tiket',
@@ -43,6 +44,13 @@ class Ticket extends Model
       {
           // 2 parameter (path model, field foreign key)
           return $this->hasOne('App\Models\Operational\Transaction', 'nama_tiket');
+      }
+
+      //one to many
+      public function event()
+      {
+          // 3 parameter (path model, field foreign key, field primary key from table hasMany/hasOne)
+          return $this->belongsTo('App\Models\Operational\Event', 'event_id', 'id');
       }
   }
 
