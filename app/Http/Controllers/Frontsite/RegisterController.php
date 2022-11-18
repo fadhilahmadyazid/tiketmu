@@ -3,39 +3,43 @@
 namespace App\Http\Controllers\Frontsite;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
-//use library
+// use library here
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Request;
 
-//use everything
-use Illuminate\Auth\Access\Gate;
-use file;
+// use everything here
+// use Gate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Access\Gate;
 
-//model here
+// use model here
 use App\Models\User;
-use App\Models\Operational\Ticket;
-use App\Models\Operational\Event;
-// use App\Models\
 
-class LandingController extends Controller
+// thirdparty package
+
+class RegisterController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        $event = Event::orderBy('created_at', 'desc')->limit(4)->get();
-        return view('pages.frontsite.landing-page.index');
+        return view('pages.frontsite.success.signup-success');
     }
 
     /**

@@ -1,41 +1,50 @@
 <?php
 
-namespace App\Http\Controllers\Frontsite;
+namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
-//use library
+// use library here
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
-//use everything
+// use everything here
 use Illuminate\Auth\Access\Gate;
-use file;
 use Illuminate\Support\Facades\Auth;
 
-//model here
-use App\Models\User;
-use App\Models\Operational\Ticket;
-use App\Models\Operational\Event;
-// use App\Models\
+// use model here
+use App\Models\ManagementAccess\Permission;
+use App\Models\ManagementAccess\PermissionRole;
+use App\Models\ManagementAccess\Role;
+use App\Models\ManagementAccess\RoleUser;
 
-class LandingController extends Controller
+// thirdparty package
+
+class PermissionController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        $event = Event::orderBy('created_at', 'desc')->limit(4)->get();
-        return view('pages.frontsite.landing-page.index');
+        abort_if(Gate::denies('permission_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $permission = Permission::orderBy('id', 'asc')->get();
+
+        return view('pages.backsite.management-access.permission.index', compact('permission'));
     }
 
     /**

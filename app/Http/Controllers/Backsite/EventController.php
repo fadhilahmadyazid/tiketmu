@@ -18,11 +18,11 @@ use App\Http\Requests\Event\UpdateEventRequest;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Backtrace\File;
+//use Symfony\Component\HttpFoundation\File\File;
 
 // use model here
-use App\Models\Operational\Doctor;
-use App\Models\MasterData\Specialist;
-use Illuminate\Console\Scheduling\Event;
+use App\Models\Operational\Event;
+
 
 // thirdparty package
 
@@ -53,7 +53,7 @@ class EventController extends Controller
         // for select2 = ascending a to z
         //$specialist = Specialist::orderBy('name', 'asc')->get();
 
-        return view('pages.backsite.operational.event.index', compact('doctor', 'specialist'));
+        return view('pages.backsite.operational.event.index', compact('event'));
     }
 
     /**
@@ -111,9 +111,9 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        abort_if(Gate::denies('doctor_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('event_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('pages.backsite.operational.doctor.show', compact('doctor'));
+        return view('pages.backsite.operational.event.show', compact('event'));
     }
 
     /**
@@ -124,7 +124,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        abort_if(Gate::denies('doctor_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('event_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         // for select2 = ascending a to z
         // $specialist = Specialist::orderBy('name', 'asc')->get();
@@ -149,18 +149,18 @@ class EventController extends Controller
         $data['price'] = str_replace('IDR ', '', $data['price']);
 
         // upload process here
-        // change format photo
-        if(isset($data['photo'])){
+        // change format event
+        if(isset($data['cover'])){
 
-             // first checking old photo to delete from storage
-            $get_item = $event['photo'];
+             // first checking old event to delete from storage
+            $get_item = $event['cover'];
 
             // change file locations
-            $data['photo'] = $request->file('photo')->store(
-                'assets/file-doctor', 'public'
+            $data['event'] = $request->file('cover')->store(
+                'assets/file-event', 'public'
             );
 
-            // delete old photo from storage
+            // delete old event from storage
             $data_old = 'storage/'.$get_item;
             if (File::exists($data_old)) {
                 File::delete($data_old);
