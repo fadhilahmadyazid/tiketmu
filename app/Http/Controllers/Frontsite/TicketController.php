@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
-
 // use everything here
 // use Gate;
 use Illuminate\Auth\Access\Gate;

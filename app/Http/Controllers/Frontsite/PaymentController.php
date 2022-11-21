@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 // use everything here
-// use Gate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Access\Gate;
 
@@ -65,14 +64,14 @@ class PaymentController extends Controller
     {
         $data = $request->all();
 
-        $ticket = ticket::where('id', $data['ticket_id'])->first();
+        $ticket = Ticket::where('id', $data['ticket_id'])->first();
         $config_payment = ConfigPayment::first();
 
         // set transaction
-        $specialist_fee = $ticket->event->specialist->price;
-        $event_price = $ticket->event->fee;
+        //$specialist_fee = $ticket->event->specialist->price;
+        $event_price = $ticket->event->price;
         $hospital_fee = $config_payment->fee;
-        $hospital_vat = $config_payment->vat;
+        //$hospital_vat = $config_payment->vat;
 
         // total
         $total = event_price + $hospital_fee;
@@ -84,9 +83,9 @@ class PaymentController extends Controller
         // save to database
         $transaction = new Transaction;
         $transaction->ticket_id = $ticket['id'];
-        $transaction->price_event = $event_fee;
-        $transaction->fee_specialist = $specialist_fee;
-        $transaction->fee_hospital = $hospital_fee;
+        $transaction->price_event = $event_price;
+        //$transaction->fee_specialist = $specialist_fee;
+        //$transaction->fee_hospital = $hospital_fee;
         $transaction->sub_total = $total;
         $transaction->vat = $total_with_vat;
         $transaction->total = $grand_total;
