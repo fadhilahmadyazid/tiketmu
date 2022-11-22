@@ -1,9 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+//Frontsite
 use App\Http\Controllers\Frontsite\LandingController;
 use App\Http\Controllers\Frontsite\PaymentController;
 use App\Http\Controllers\Frontsite\TicketController;
+
+//Backsite
+use App\Http\Controllers\Backsite\DashboardController;
 use Faker\Provider\ar_EG\Payment;
 
 /*
@@ -33,7 +38,10 @@ function(){
 route::group(['prefix' => 'backsite', 'as' => 'backsite', 'middleware' => ['auth:sanctum', 'verified']],
 function(){
 
-    return view('dashboard');
+    //dashboard page
+        Route::resource('dashboard', DashboardController::class);
+
+    //return view('dashboard');
 
 
 });
