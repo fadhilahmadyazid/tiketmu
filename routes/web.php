@@ -32,8 +32,7 @@ use Faker\Provider\ar_EG\Payment;
 */
 
 route::resource('/',LandingController::class);
-route::group([ 'middleware' => ['auth:sanctum', 'verified']],
-function(){
+route::group([ 'middleware' => ['auth:sanctum', 'verified']], function(){
     //return view('dashboard');
 
     // ticket page
@@ -42,7 +41,7 @@ function(){
 
     //Payment page
     route::resource('payment', PaymentController::class);
-});
+    });
 
 Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['auth:sanctum', 'verified']], function () {
 
