@@ -10,10 +10,13 @@
             @include('includes.frontsite.style')
         @stack('after-style')
 
+         {{-- sweetalert --}}
+        {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+
     </head>
     <body>
 
-        {{-- @include('sweetalert::alert') --}}
+        @include('sweetalert::alert')
 
         @yield('content')
 

@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 
 // use library here
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Console\View\Components\Alert;
+use Laravel\Fortify\Http\Responses\SuccessfulPasswordResetLinkRequestResponse;
 
 // use everything here
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -55,6 +58,8 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
         return abort(404);
+        // Alert::success('Success Title', 'Success Message');
+        // return back();
     }
 
     /**
