@@ -19,6 +19,6 @@ class Authenticate extends Middleware
         }
 
         // redirect to homepage after login
-        return route('index');
+        //return route('index');
     }
 }
