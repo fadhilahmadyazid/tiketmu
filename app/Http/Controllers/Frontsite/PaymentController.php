@@ -8,10 +8,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Str;
 
 // use everything here
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
 
 // use model here
 use App\Models\User;
@@ -68,26 +69,21 @@ class PaymentController extends Controller
         $config_payment = ConfigPayment::first();
 
         // set transaction
-        //$specialist_fee = $ticket->event->specialist->price;
         $event_price = $ticket->event->price;
-        $hospital_fee = $config_payment->fee;
-        //$hospital_vat = $config_payment->vat;
+        //$hospital_fee = $config_payment->fee;
 
         // total
-        $total = event_price + $hospital_fee;
+        $total = $event_price;   // total price ;
 
         // total with vat and grand total
-        $total_with_vat = ($total * $hospital_vat) / 100;
-        $grand_total = $total + $total_with_vat;
+        //$total_with_vat = ($total * $hospital_vat) / 100;
+        $grand_total = $total;
 
         // save to database
         $transaction = new Transaction;
         $transaction->ticket_id = $ticket['id'];
         $transaction->price_event = $event_price;
-        //$transaction->fee_specialist = $specialist_fee;
-        //$transaction->fee_hospital = $hospital_fee;
         $transaction->sub_total = $total;
-        $transaction->vat = $total_with_vat;
         $transaction->total = $grand_total;
         $transaction->save();
 
@@ -154,7 +150,7 @@ class PaymentController extends Controller
 
         // set value
         //$specialist_fee = $ticket->event->specialist->price;
-        $event_price = $ticket->event->fee;
+        $event_price = $ticket->event->price;
 
         //$hospital_fee = $config_payment->fee;
         //$hospital_vat = $config_payment->vat;

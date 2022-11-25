@@ -3,29 +3,22 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 // use library here
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
-
-// request
-use App\Http\Requests\Role\StoreRoleRequest;
-use App\Http\Requests\Role\UpdateRoleRequest;
 
 // use everything here
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Support\Facades\Auth;
 
 // use model here
-use App\Models\ManagementAccess\Role;
-use App\Models\ManagementAccess\RoleUser;
-use App\Models\ManagementAccess\Permission;
-use App\Models\ManagementAccess\PermissionRole;
+use App\Models\MasterData\TypeUser;
 
 // thirdparty package
 
-class RoleController extends Controller
+class TypeUserController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -44,11 +37,11 @@ class RoleController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('role_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('type_user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $role = Role::orderBy('created_at', 'desc')->get();
+        $type_user = TypeUser::all();
 
-        return view('pages.backsite.management-access.role.index', compact('role'));
+        return view('pages.backsite.management-access.type-user.index', compact('type_user'));
     }
 
     /**
@@ -67,16 +60,9 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRoleRequest $request)
+    public function store(Request $request)
     {
-        // get all request from frontsite
-        $data = $request->all();
-
-        // store to database
-        $role = Role::create($data);
-
-        alert()->success('Success Message', 'Successfully added new role');
-        return redirect()->route('backsite.role.index');
+        return abort(404);
     }
 
     /**
@@ -85,14 +71,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show($id)
     {
-        abort_if(Gate::denies('role_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        // need more notes here
-        $role->load('permission');
-
-        return view('pages.backsite.management-access.role.show', compact('role'));
+        return abort(404);
     }
 
     /**
@@ -101,15 +82,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit($id)
     {
-        abort_if(Gate::denies('role_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        // need more notes here
-        $permission = Permission::all();
-        $role->load('permission');
-
-        return view('pages.backsite.management-access.role.edit', compact('permission', 'role'));
+        return abort(404);
     }
 
     /**
@@ -119,14 +94,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRoleRequest $request, Role $role)
+    public function update(Request $request, $id)
     {
-        // need more notes here
-        $role->update($request->all());
-        $role->permission()->sync($request->input('permission', []));
-
-        alert()->success('Success Message', 'Successfully updated role');
-        return redirect()->route('backsite.role.index');
+        return abort(404);
     }
 
     /**
@@ -135,14 +105,8 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy($id)
     {
-        abort_if(Gate::denies('role_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        // need more notes here
-        $role->forceDelete();
-
-        alert()->success('Success Message','Successfully deleted role');
-        return back();
+        return abort(404);
     }
 }

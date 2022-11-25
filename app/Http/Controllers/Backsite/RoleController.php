@@ -74,7 +74,7 @@ class RoleController extends Controller
         // store to database
         $role = Role::create($data);
 
-        alert()->success('Success Message', 'Successfully added new role');
+        // alert()->success('Success Message', 'Successfully added new role');
         return redirect()->route('backsite.role.index');
     }
 
@@ -124,7 +124,7 @@ class RoleController extends Controller
         $role->update($request->all());
         $role->permission()->sync($request->input('permission', []));
 
-        alert()->success('Success Message', 'Successfully updated role');
+        // alert()->success('Success Message', 'Successfully updated role');
         return redirect()->route('backsite.role.index');
     }
 
@@ -141,7 +141,7 @@ class RoleController extends Controller
         // need more notes here
         $role->forceDelete();
 
-        alert()->success('Success Message','Successfully deleted role');
+        // alert()->success('Success Message','Successfully deleted role');
         return back();
     }
 }

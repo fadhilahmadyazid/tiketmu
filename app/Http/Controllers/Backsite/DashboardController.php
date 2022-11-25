@@ -46,7 +46,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return abort(04);
+        return abort(404);
     }
 
     /**

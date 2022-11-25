@@ -11,14 +11,14 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 // use everything here
-// use Gate;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Support\Facades\Auth;
 
 // use model here
 use App\Models\User;
-use App\Models\Operational\Appointment;
+use App\Models\Operational\Event;
 use App\Models\Operational\Ticket;
+
 
 class TicketController extends Controller
 
@@ -40,7 +40,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        return view('pages.frontsite.ticket.index');
+        return abort(404);
+        //return view('pages.frontsite.ticket.index');
     }
 
     /**
@@ -61,7 +62,18 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        return abort(404);
+        $data = $request->all();
+
+        $ticket = new Ticket();
+        $ticket->event_id = $data['event_id'];
+        $ticket->user_id = Auth::user()->id;
+        $ticket->level = $data['level_id'];
+        // $ticket->date = $data['date'];
+        // $ticket->time = $data['time'];
+        $ticket->status = 2; // set to waiting payment
+        $ticket->save();
+
+        return redirect()->route('payment.ticket', $ticket->id);
     }
 
     /**
@@ -111,9 +123,9 @@ class TicketController extends Controller
 
     public function ticket($id)
     {
-        $ticket = ticket::where('id', $id)->first();
+        $event = Event::where('id', $id)->first();
 
-        return view('pages.frontsite.ticket.index', compact('ticket'));
+        return view('pages.frontsite.ticket.index', compact('event'));
     }
 }
 
