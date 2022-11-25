@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontsite\LandingController;
 use App\Http\Controllers\Frontsite\PaymentController;
 use App\Http\Controllers\Frontsite\TicketController;
+use App\Http\Controllers\Frontsite\RegisterController;
 
 //Backsite
 use App\Http\Controllers\Backsite\DashboardController;
@@ -32,20 +33,28 @@ use Faker\Provider\ar_EG\Payment;
 */
 
 route::resource('/',LandingController::class);
-route::group([ 'middleware' => ['auth:sanctum', 'verified']], function(){
+route::group([ 'middleware' => ['auth:sanctum', 'verified']], function()
+    {
     //return view('dashboard');
 
     // ticket page
-    route::get('/ticket/{id}', [TicketController::class, 'ticket'])->name('ticket');
+    route::get('ticket/event/{id}', [TicketController::class, 'ticket'])->name('ticket.event');
     route::resource('ticket', TicketController::class);
 
     //Payment page
-    route::resource('payment', PaymentController::class);
+    Route::controller(PaymentController::class)->group(function() {
+        Route::get('payment/success', 'success')->name('payment.success');
+        Route::get('payment/ticket/{id}', 'payment')->name('payment.ticket');
+        Route::post('payment/callback', 'callback')->name('payment.callback');
     });
+    Route::resource('payment', PaymentController::class);
 
+    Route::resource('register_success', RegisterController::class);
+    }
+);
+
+    //Backsite
 Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['auth:sanctum', 'verified']], function () {
-
-
     //dashboard page
     Route::resource('dashboard', DashboardController::class);
 
@@ -72,9 +81,8 @@ Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['aut
 
     // report transaction
     Route::resource('transaction', ReportTransactionController::class);
-
-
-});
+    }
+);
 
 // Route::get('/', function () {
 //     return view('welcome');

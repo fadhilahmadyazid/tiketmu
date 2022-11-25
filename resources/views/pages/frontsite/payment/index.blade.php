@@ -13,7 +13,7 @@
             <!-- Event Information -->
             <div class="flex flex-wrap items-center space-x-5">
                 <div class="flex-shrink-0">
-                    <img src="{{ url(Storage::url($ticket->)) ?? '' }}" class="w-20 h-20 rounded-full bg-center object-cover object-top" alt="event 1"/>
+                    <img src="{{ url(Storage::url($ticket)) ?? '' }}" class="w-20 h-20 rounded-full bg-center object-cover object-top" alt="event 1"/>
                 </div>
 
                 <div class="flex-1 space-y-1">
