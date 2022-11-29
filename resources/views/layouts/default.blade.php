@@ -14,6 +14,7 @@
 
 </head>
 <body>
+    @include('sweet::alert')
     @include('components.frontsite.header')
          @yield('content')
 
