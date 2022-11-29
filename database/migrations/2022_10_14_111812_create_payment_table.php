@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('payment', function (Blueprint $table) {
             $table->id();
-            $table->string('fee_tiket');
+            $table->string('price_tiket');
             $table->string('nama_user');
             $table->timestamps();
             $table->softDeletes();

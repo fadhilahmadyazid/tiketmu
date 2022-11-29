@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('config_payment', function (Blueprint $table) {
-            $table->id();
-            $table->string('price')->nullable();
-            $table->string('pajak')->nullable();
-            $table->string('total')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('transaction', function (Blueprint $table) {
+            $table->foreign('ticket_id', 'fk_transaction_to_ticket')->references('id')->on('ticket')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('config_payment');
+        Schema::table('transaction', function (Blueprint $table) {
+            $table->dropForeign('fk_transaction_to_ticket');
+        });
     }
 };
