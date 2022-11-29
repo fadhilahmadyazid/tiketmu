@@ -129,7 +129,7 @@ class EventController extends Controller
         // for select2 = ascending a to z
         // $specialist = Specialist::orderBy('name', 'asc')->get();
 
-        // return view('pages.backsite.operational.doctor.edit', compact('doctor', 'specialist'));
+         return view('pages.backsite.operational.event.edit', compact('doctor'));
     }
 
     /**
