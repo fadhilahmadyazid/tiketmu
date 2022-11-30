@@ -19,7 +19,7 @@ class ConfigPaymentSeeder extends Seeder
     public function run()
     {
         DB::table('ConfigPayment')->insert([
-            'fee' => Str::random(10),
+            'price' => Str::random(10),
             'pajak' => Str::random(10),
             'total' => Str::random(10),
         ]);
