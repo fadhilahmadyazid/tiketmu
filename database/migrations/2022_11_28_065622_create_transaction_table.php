@@ -20,7 +20,7 @@ return new class extends Migration
             //$table->string('fee_specialist')->nullable();
             //$table->string('fee_hospital')->nullable();
             $table->string('sub_total')->nullable();
-            //$table->string('vat')->nullable();
+            $table->string('pajak')->nullable();
             $table->string('total')->nullable();
             $table->timestamps();
             $table->softDeletes();
