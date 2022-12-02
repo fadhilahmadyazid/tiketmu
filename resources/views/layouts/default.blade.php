@@ -14,11 +14,11 @@
 
 </head>
 <body>
-    @include('sweet::alert')
     @include('components.frontsite.header')
          @yield('content')
 
     @include('components.frontsite.footer')
+    @include('vendor.sweetalert.alert')
 
     @stack('before-script')
          @include('includes.frontsite.script')

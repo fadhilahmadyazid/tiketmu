@@ -5,7 +5,8 @@ namespace App\Http\Requests\Event;
 
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Component\HttpFoundation\Response;
+//use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Response;
 
 class StoreEventRequest extends FormRequest
 {
@@ -15,8 +16,13 @@ class StoreEventRequest extends FormRequest
      * @return bool
      */
     public function authorize()
+    // {
+    //     abort_if(Gate::denies('event_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+    //     return true;
+    // }
     {
-        abort_if(Gate::denies('event_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('event_create'), 403, '403 Forbidden');
 
         return true;
     }

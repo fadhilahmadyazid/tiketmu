@@ -8,7 +8,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+//use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Response;
+//use Spatie\Backtrace\File;
+use Illuminate\Http\File;
 
 // request
 use App\Http\Requests\Event\StoreEventRequest;
@@ -17,7 +20,7 @@ use App\Http\Requests\Event\UpdateEventRequest;
 // use everything here
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Support\Facades\Auth;
-use Spatie\Backtrace\File;
+
 //use Symfony\Component\HttpFoundation\File\File;
 
 // use model here
@@ -45,7 +48,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('doctor_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('doctor_access'), 403, '403 Forbidden');
 
         // for table grid
         $event = Event::orderBy('created_at', 'desc')->get();
@@ -83,7 +86,7 @@ class EventController extends Controller
 
         // upload process here
         $path = public_path('app/public/assets/file-event');
-        if(!File::isDirectory($path)){
+        if(!Storage::isDirectory($path)){
             $response = Storage::makeDirectory('public/assets/file-event');
         }
 
@@ -111,7 +114,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        abort_if(Gate::denies('event_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('event_show'), 403, '403 Forbidden');
 
         return view('pages.backsite.operational.event.show', compact('event'));
     }
@@ -124,7 +127,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        abort_if(Gate::denies('event_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('event_edit'), 403, '403 Forbidden');
 
         // for select2 = ascending a to z
         // $specialist = Specialist::orderBy('name', 'asc')->get();
@@ -162,10 +165,10 @@ class EventController extends Controller
 
             // delete old event from storage
             $data_old = 'storage/'.$get_item;
-            if (File::exists($data_old)) {
-                File::delete($data_old);
+            if (Storage::exists($data_old)) {
+                Storage::delete($data_old);
             }else{
-                File::delete('storage/app/public/'.$get_item);
+                Storage::delete('storage/app/public/'.$get_item);
             }
 
         }
@@ -185,16 +188,16 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        abort_if(Gate::denies('doctor_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('doctor_delete'), 403, '403 Forbidden');
 
         // first checking old file to delete from storage
         $get_item = $event['cover'];
 
         $data = 'storage/'.$get_item;
-        if (File::exists($data)) {
-            File::delete($data);
+        if (Storage::exists($data)) {
+            Storage::delete($data);
         }else{
-            File::delete('storage/app/public/'.$get_item);
+            Storage::delete('storage/app/public/'.$get_item);
         }
 
         $event->forceDelete();

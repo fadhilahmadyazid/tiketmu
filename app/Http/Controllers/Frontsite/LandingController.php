@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontsite;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 //use library
 use Illuminate\Support\Facades\Storage;
@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Operational\Ticket;
 use App\Models\Operational\Event;
+use Illuminate\Support\Facades\Request;
+
 // use App\Models\
 
 class LandingController extends Controller
@@ -34,6 +36,7 @@ class LandingController extends Controller
 
     public function index()
     {
+        toast('Your Post as been submited!','success');
         $event = Event::orderBy('created_at', 'desc')->limit(4)->get();
         return view('pages.frontsite.landing-page.index');
     }

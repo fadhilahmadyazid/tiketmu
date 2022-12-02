@@ -66,6 +66,7 @@ class PermissionSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
+
             // role
             [
                 'title'      => 'role_access',
@@ -108,68 +109,73 @@ class PermissionSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
+
+
             // specialist
-            [
-                'title'      => 'specialist_access',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'specialist_table',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'specialist_create',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'specialist_edit',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'specialist_show',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'specialist_delete',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
+            // [
+            //     'title'      => 'specialist_access',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+            // [
+            //     'title'      => 'specialist_table',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+            // [
+            //     'title'      => 'specialist_create',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+            // [
+            //     'title'      => 'specialist_edit',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+            // [
+            //     'title'      => 'specialist_show',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+            // [
+            //     'title'      => 'specialist_delete',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+
+
             // consultation
-            [
-                'title'      => 'consultation_access',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'consultation_table',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'consultation_create',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'consultation_edit',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'consultation_show',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'consultation_delete',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
+            // [
+            //     'title'      => 'consultation_access',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+            // [
+            //     'title'      => 'consultation_table',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+            // [
+            //     'title'      => 'consultation_create',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+            // [
+            //     'title'      => 'consultation_edit',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+            // [
+            //     'title'      => 'consultation_show',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+            // [
+            //     'title'      => 'consultation_delete',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+
             // config payment
             [
                 'title'      => 'config_payment_access',
@@ -188,64 +194,66 @@ class PermissionSeeder extends Seeder
             ],
             // doctor
             [
-                'title'      => 'doctor_access',
+                'title'      => 'event_access',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'title'      => 'doctor_table',
+                'title'      => 'event_table',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'title'      => 'doctor_create',
+                'title'      => 'event_create',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'title'      => 'doctor_edit',
+                'title'      => 'event_edit',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'title'      => 'doctor_show',
+                'title'      => 'event_show',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'title'      => 'doctor_delete',
+                'title'      => 'event_delete',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
-            // hospital patient
+
+            // // hospital patient
+            // [
+            //     'title'      => 'hospital_patient_access',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+            // [
+            //     'title'      => 'hospital_patient_table',
+            //     'created_at' => date('Y-m-d H:i:s'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ],
+
+            // ticket
             [
-                'title'      => 'hospital_patient_access',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'hospital_patient_table',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            // appointment
-            [
-                'title'      => 'appointment_access',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'appointment_table',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'title'      => 'appointment_show',
+                'title'      => 'ticket_access',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'title'      => 'appointment_export',
+                'title'      => 'ticket_table',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'title'      => 'ticket_show',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'title'      => 'ticket_export',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],

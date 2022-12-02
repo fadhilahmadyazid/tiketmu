@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 // use library here
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
+// use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Support\Facades\Request;
 
 // use everything here
 use Illuminate\Auth\Access\Gate;
@@ -20,7 +21,6 @@ use App\Models\Operational\Event;
 use App\Models\User;
 use App\Models\ManagementAccess\DetailUser;
 use App\Models\MasterData\Consultation;
-use App\Models\MasterData\Specialist;
 use App\Models\MasterData\ConfigPayment;
 
 // thirdparty package
@@ -44,7 +44,7 @@ class ReportTransactionController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('transaction_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('transaction_access'), 403, '403 Forbidden');
 
         $type_user_condition = Auth::user()->detail_user->type_user_id;
 

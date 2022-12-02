@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 // use library here
 use Illuminate\Support\Facades\Storage;
@@ -15,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 // use model here
 use App\Models\MasterData\TypeUser;
+use Illuminate\Support\Facades\Request;
 
 // thirdparty package
 
