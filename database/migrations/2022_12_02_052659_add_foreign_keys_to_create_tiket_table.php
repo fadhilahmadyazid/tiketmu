@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('create_tiket', function (Blueprint $table) {
-            $table->foreign('event_id', 'fk_ticket_to_event')->references('id')->on('event')->onUpdate('CASCADE')->onDelete('CASCADE');
-            $table->foreign('nama_event', 'fk_appointment_to_tiket')->references('id')->on('tiket')->onUpdate('CASCADE')->onDelete('CASCADE');
-            $table->foreign('user_id', 'fk_appointment_to_users')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('event_id', 'fk_tiket_to_event')->references('id')->on('event')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('user_id', 'fk_tiket_to_users')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('jenistiket_id', 'fk_tiket_to_jenistiket')->references('id')->on('jenis_tiket')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -29,8 +29,8 @@ return new class extends Migration
     {
         Schema::table('create_tiket', function (Blueprint $table) {
             $table->dropForeign('fk_tiket_to_event');
-            $table->dropForeign('fk_appointment_to_tiket');
-            $table->dropForeign('fk_appointment_to_users');
+            $table->dropForeign('fk_tiket_to_users');
+            $table->dropForeign('fk_tiket_to_jenistiket');
         });
     }
 };

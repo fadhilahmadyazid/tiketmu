@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::create('tiket', function (Blueprint $table) {
             $table->id();
             $table->foreignId('event_id')->nullable()->index('fk_tiket_to_event');
-            $table->foreignId('nama_event')->nullable()->index('fk_appointment_to_tiket');
-            $table->foreignId('user_id')->nullable()->index('fk_appointment_to_users');
+            $table->foreignId('user_id')->nullable()->index('fk_tiket_to_users');
             $table->enum('jenis_tiket',[1,2,3]);
             $table->string('harga_tiket');
             $table->enum('status', [1,2]);

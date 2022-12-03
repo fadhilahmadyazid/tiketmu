@@ -13,16 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('event', function (Blueprint $table) {
+        Schema::create('jenis_event', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ticket_id')->nullable()->index('fk_event_to_ticket');
-            $table->string('name');
-            $table->string('price');
-            $table->longText('cover')->nullable();
-            $table->longText('description');
-            $table->string('location');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -33,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event');
+        Schema::dropIfExists('jenis_event');
     }
 };

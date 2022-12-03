@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('transaction', function (Blueprint $table) {
-            $table->foreign('ticket_id', 'fk_transaction_to_ticket')->references('id')->on('ticket')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('ticket_id', 'fk_transaction_to_ticket')->references('id')->on('tiket')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
