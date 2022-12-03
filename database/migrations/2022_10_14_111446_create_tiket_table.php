@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('event_id')->nullable()->index('fk_tiket_to_event');
             $table->foreignId('user_id')->nullable()->index('fk_tiket_to_users');
+            $table->foreignId('jenistiket_id')->nullable()->index('fk_tiket_to_jenistiket');
             $table->enum('jenis_tiket',[1,2,3]);
             $table->string('harga_tiket');
             $table->enum('status', [1,2]);

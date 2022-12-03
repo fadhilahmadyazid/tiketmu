@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Auth;
 
 // use model here
 use App\Models\MasterData\ConfigPayment;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 // thirdparty package
 
@@ -41,7 +42,7 @@ class ConfigPaymentController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('config_payment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('config_payment_access'), 403, '403 Forbidden');
 
         $config_payment = ConfigPayment::all();
 
@@ -64,7 +65,7 @@ class ConfigPaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FacadesRequest $request)
     {
         return abort(404);
     }
@@ -88,7 +89,7 @@ class ConfigPaymentController extends Controller
      */
     public function edit(ConfigPayment $config_payment)
     {
-        abort_if(Gate::denies('config_payment_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('config_payment_edit'), 403, '403 Forbidden');
 
         return view('pages.backsite.master-data.config-payment.edit', compact('config_payment'));
     }

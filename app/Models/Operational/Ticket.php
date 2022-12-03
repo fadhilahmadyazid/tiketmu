@@ -25,6 +25,7 @@ class Ticket extends Model
          'event_id',
          'nama_event',
          'user_id',
+         'jenistiket_id',
          'jenis_tiket',
          'harga_tiket',
          'status',
@@ -51,6 +52,12 @@ class Ticket extends Model
       {
           // 3 parameter (path model, field foreign key, field primary key from table hasMany/hasOne)
           return $this->belongsTo('App\Models\Operational\Event', 'event_id', 'id');
+      }
+
+      public function jenistiket()
+      {
+          // 3 parameter (path model, field foreign key, field primary key from table hasMany/hasOne)
+          return $this->belongsTo('App\Models\MasterData\JenisTicket', 'jenistiket_id', 'id');
       }
   }
 

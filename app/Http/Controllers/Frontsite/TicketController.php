@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Operational\Event;
 use App\Models\Operational\Ticket;
+use App\Models\MasterData\JenisTiket;
 
 
 class TicketController extends Controller
@@ -67,7 +68,8 @@ class TicketController extends Controller
         $ticket = new Ticket();
         $ticket->event_id = $data['event_id'];
         $ticket->user_id = Auth::user()->id;
-        $ticket->level = $data['level_id'];
+        //$ticket->level = $data['level_id'];
+        $ticket->jenistiket_id = $data['jenistiket_id'];
         // $ticket->date = $data['date'];
         // $ticket->time = $data['time'];
         $ticket->status = 2; // set to waiting payment
@@ -124,8 +126,9 @@ class TicketController extends Controller
     public function ticket($id)
     {
         $event = Event::where('id', $id)->first();
+        $jenistiket = JenisTiket::orderBy('name', 'asc')->get();
 
-        return view('pages.frontsite.ticket.index', compact('event'));
+        return view('pages.frontsite.ticket.index', compact('event, jenistiket'));
     }
 }
 

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\MasterData\JenisTiket;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             TypeUserSeeder::class,
+            JenisTiket::class,
             ConfigPaymentSeeder::class,
             UserSeeder::class,
             DetailUserSeeder::class,

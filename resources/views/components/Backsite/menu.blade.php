@@ -49,7 +49,7 @@
             {{-- @endcan --}}
 
             {{-- @can('master_data_access') --}}
-                <li class=" nav-item"><a href="#"><i class="{{ request()->is('backsite/specialist') || request()->is('backsite/specialist/*') || request()->is('backsite/*/specialist') || request()->is('backsite/*/specialist/*') || request()->is('backsite/consultation') || request()->is('backsite/consultation/*') || request()->is('backsite/*/consultation') || request()->is('backsite/*/consultation/*') || request()->is('backsite/config_payment') || request()->is('backsite/config_payment/*') || request()->is('backsite/*/config_payment') || request()->is('backsite/*/config_payment/*') ? 'bx bx-customize bx-flashing' : 'bx bx-customize' }}"></i><span class="menu-title" data-i18n="Master Data">Master Data</span></a>
+                <li class=" nav-item"><a href="#"><i class="{{ request()->is('backsite/specialist') || request()->is('backsite/specialist/*') || request()->is('backsite/*/specialist') || request()->is('backsite/*/specialist/*') || request()->is('backsite/jenistiket') || request()->is('backsite/jenistiket/*') || request()->is('backsite/*/jenistiket') || request()->is('backsite/*/jenistiket/*') || request()->is('backsite/config_payment') || request()->is('backsite/config_payment/*') || request()->is('backsite/*/config_payment') || request()->is('backsite/*/config_payment/*') ? 'bx bx-customize bx-flashing' : 'bx bx-customize' }}"></i><span class="menu-title" data-i18n="Master Data">Master Data</span></a>
                     <ul class="menu-content">
 
                         {{-- @can('specialist_access') --}}
@@ -61,11 +61,11 @@
                         {{-- @endcan --}}
 
                         {{-- @can('consultation_access') --}}
-                            {{-- <li class="{{ request()->is('backsite/consultation') || request()->is('backsite/consultation/*') || request()->is('backsite/*/consultation') || request()->is('backsite/*/consultation/*') ? 'active' : '' }} ">
-                                <a class="menu-item" href="{{ route('backsite.consultation.index') }}">
-                                    <i></i><span>Consultation</span>
+                            <li class="{{ request()->is('backsite/jenistiket') || request()->is('backsite/jenistiket/*') || request()->is('backsite/*/jenistiket') || request()->is('backsite/*/jenistiket/*') ? 'active' : '' }} ">
+                                <a class="menu-item" href="{{ route('backsite.jenistiket.index') }}">
+                                    <i></i><span>Jenis Tiket</span>
                                 </a>
-                            </li> --}}
+                            </li>
                         {{-- @endcan --}}
 
                         {{-- @can('config_payment_access') --}}

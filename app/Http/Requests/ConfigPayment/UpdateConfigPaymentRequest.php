@@ -16,7 +16,7 @@ class UpdateConfigPaymentRequest extends FormRequest
      */
     public function authorize()
     {
-        abort_if(Gate::denies('config_payment_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('config_payment_edit'), 403, '403 Forbidden');
 
         return true;
     }
@@ -29,7 +29,7 @@ class UpdateConfigPaymentRequest extends FormRequest
     public function rules()
     {
         return [
-            'fee' => [
+            'price' => [
                 'required', 'string', 'max:255',
             ],
             'pajak' => [
