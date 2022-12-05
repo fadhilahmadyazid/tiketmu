@@ -38,11 +38,11 @@ class RoleSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
-            // [
-            //     'title'      => 'Patient', // 5
-            //     'created_at' => date('Y-m-d H:i:s'),
-            //     'updated_at' => date('Y-m-d H:i:s'),
-            // ],
+            [
+                'title'      => 'User', // 5
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
         ];
 
         Role::insert($role);
