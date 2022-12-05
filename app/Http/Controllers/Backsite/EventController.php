@@ -48,7 +48,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('doctor_access'), 403, '403 Forbidden');
+        abort_if(Gate::denies('event_access'), 403, '403 Forbidden');
 
         // for table grid
         $event = Event::orderBy('created_at', 'desc')->get();
@@ -132,7 +132,7 @@ class EventController extends Controller
         // for select2 = ascending a to z
         // $specialist = Specialist::orderBy('name', 'asc')->get();
 
-         return view('pages.backsite.operational.event.edit', compact('doctor'));
+         return view('pages.backsite.operational.event.edit', compact('event'));
     }
 
     /**
