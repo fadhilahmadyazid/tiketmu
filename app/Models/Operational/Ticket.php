@@ -57,7 +57,7 @@ class Ticket extends Model
       public function jenistiket()
       {
           // 3 parameter (path model, field foreign key, field primary key from table hasMany/hasOne)
-          return $this->belongsTo('App\Models\MasterData\JenisTicket', 'jenistiket_id', 'id');
+          return $this->belongsTo('App\Models\MasterData\JenisTiket', 'jenistiket_id', 'id');
       }
   }
 
