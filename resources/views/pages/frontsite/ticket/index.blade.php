@@ -8,7 +8,7 @@
     <div class="min-h-screen">
         <div class="lg:max-w-7xl lg:flex items-center mx-auto px-4 lg:px-14 pt-6 py-20 lg:py-24 gap-x-24">
 
-            <!-- Detail Doctor  -->
+            <!-- Detail Event  -->
             <div class="lg:w-5/12 lg:border-r h-72 lg:h-[30rem] flex flex-col items-center justify-center text-center">
                 <img src="{{ asset('/assets/frontsite/images/Group 55.png') }}"
                     {{-- class="inline-block w-32 h-32 bg-center object-cover object-top" alt="event1" /> --}}
@@ -63,30 +63,27 @@
                     Order Ticket
                 </h2>
 
-                <form action="" class="mt-8 space-y-5">
+                <form action="{{ route('ticket.store') }}" method="POST" enctype="multipart/form-data" class="mt-8 space-y-5">
+
+                    @csrf
+
                     <label class="block">
-                        {{-- <select
-                            name="topic"
-                            id="topic"
+                        <select
+                            name="jenistiket_id"
+                            id="jenistiket_id"
                             class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
-                            placeholder="Pilih venue"
+                            placeholder="Jenis Tiket" required
                         >
 
                             <option disabled selected class="hidden">
-                                Topik Konsultasi
+                                Jenis Tiket
                             </option>
 
-                            <option value="Jantung Sesak">Jantung Sesak</option>
+                            @foreach ($jenistiket as $jenistiket_item)
+                                <option value="{{ $jenistiket_item->id }}">{{ $jenistiket_item->name }}</option>
+                            @endforeach
 
-                            <option value="Tekanan Darah Tinggi">
-                                Tekanan Darah Tinggi
-                            </option>
-
-                            <option value="Gangguan Irama Jantung">
-                                Gangguan Irama Jantung
-                            </option>
-
-                        </select> --}}
+                        </select>
                     </label>
 
                     <label class="block">

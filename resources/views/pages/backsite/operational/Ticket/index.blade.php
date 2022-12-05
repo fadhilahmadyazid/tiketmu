@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 {{-- set title --}}
-@section('title', 'Config Payment')
+@section('title', 'ticket')
 
 @section('content')
 
@@ -28,12 +28,12 @@
             {{-- breadcumb --}}
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-                    <h3 class="content-header-title mb-0 d-inline-block">Config Payment</h3>
+                    <h3 class="content-header-title mb-0 d-inline-block">ticket</h3>
                     <div class="row breadcrumbs-top d-inline-block">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('backsite.dashboard.index') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Config Payment</li>
+                                <li class="breadcrumb-item active">ticket</li>
                             </ol>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
             </div>
 
             {{-- table card --}}
-            @can('config_payment_table')
+            @can('ticket_table')
                 <div class="content-body">
                     <section id="table-home">
                         <!-- Zero configuration table -->
@@ -49,7 +49,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title">Config Payment List</h4>
+                                        <h4 class="card-title">ticket List</h4>
                                         <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                         <div class="heading-elements">
                                             <ul class="list-inline mb-0">
@@ -68,31 +68,41 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Date</th>
-                                                            <th>Price</th>
-                                                            <th>Pajak</th>
-                                                            <th style="text-align:center; width:150px;">Action</th>
+                                                            <th>Event</th>
+                                                            {{-- <th>Patient</th> --}}
+                                                            <th>Jenis Tiket</th>
+                                                            {{-- <th>Level</th> --}}
+                                                            <th>Date</th>
+                                                            <th>Time</th>
+                                                            <th>Status</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @forelse($config_payment as $key => $config_payment_item)
-                                                            <tr data-entry-id="{{ $config_payment_item->id }}">
-                                                                <td>{{ isset($config_payment_item->created_at) ? date("d/m/Y H:i:s",strtotime($config_payment_item->created_at)) : '' }}</td>
-                                                                <td>{{ 'IDR '.number_format($config_payment_item->fee) ?? '' }}</td>
-                                                                <td>{{ number_format($config_payment_item->vat).'%' ?? '' }}</td>
-                                                                <td class="text-center">
-
-                                                                    <div class="btn-group mr-1 mb-1">
-                                                                        <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-                                                                        <div class="dropdown-menu">
-
-                                                                            @can('config_payment_edit')
-                                                                                <a class="dropdown-item" href="{{ route('backsite.config_payment.edit', $config_payment_item->id) }}">
-                                                                                    Edit
-                                                                                </a>
-                                                                            @endcan
-
-                                                                        </div>
-                                                                    </div>
+                                                        @forelse($ticket as $key => $ticket_item)
+                                                            <tr data-entry-id="{{ $ticket_item->id }}">
+                                                                <td>{{ isset($ticket_item->created_at) ? date("d/m/Y H:i:s",strtotime($ticket_item->created_at)) : '' }}</td>
+                                                                <td>{{ $ticket_item->event->name ?? '' }}</td>
+                                                                <td>{{ $ticket_item->user->name ?? '' }}</td>
+                                                                <td>{{ $ticket_item->jenistiket->name ?? '' }}</td>
+                                                                <td>
+                                                                    @if($ticket_item->level == 1)
+                                                                        <span class="badge badge-info">{{ 'Low' }}</span>
+                                                                    @elseif($ticket_item->level == 2)
+                                                                        <span class="badge badge-warning">{{ 'Medium' }}</span>
+                                                                    @elseif($ticket_item->level == 3)
+                                                                        <span class="badge badge-danger">{{ 'High' }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>{{ isset($ticket_item->date) ? date("d/m/Y",strtotime($ticket_item->date)) : '' }}</td>
+                                                                <td>{{ isset($ticket_item->time) ? date("H:i:s",strtotime($ticket_item->time)) : '' }}</td>
+                                                                <td>
+                                                                    @if($ticket_item->status == 1)
+                                                                        <span class="badge badge-success">{{ 'Payment Completed' }}</span>
+                                                                    @elseif($ticket_item->status == 2)
+                                                                        <span class="badge badge-warning">{{ 'Waiting Payment' }}</span>
+                                                                    @else
+                                                                        <span>{{ 'N/A' }}</span>
+                                                                    @endif
                                                                 </td>
                                                             </tr>
                                                         @empty
@@ -102,9 +112,13 @@
                                                     <tfoot>
                                                         <tr>
                                                             <th>Date</th>
-                                                            <th>Price</th>
-                                                            <th>Pajak</th>
-                                                            <th style="text-align:center; width:150px;">Action</th>
+                                                            <th>Event</th>
+                                                            <th>Patient</th>
+                                                            <th>Jenis Ticket</th>
+                                                            {{-- <th>Level</th> --}}
+                                                            <th>Date</th>
+                                                            <th>Time</th>
+                                                            <th>Status</th>
                                                         </tr>
                                                     </tfoot>
                                                 </table>

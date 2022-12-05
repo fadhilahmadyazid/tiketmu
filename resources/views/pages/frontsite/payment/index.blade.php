@@ -177,7 +177,7 @@
                 <h5 class="text-[#1E2B4F] text-lg font-semibold">Booking Your Ticket</h5>
                 <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Venue</div>
-                    <div class="text-[#1E2B4F] font-medium">{{ $appointment->consultation->name ?? '' }}</div>
+                    <div class="text-[#1E2B4F] font-medium">{{ $appointment->jenistiket->name ?? '' }}</div>
                 </div>
 
                 <div class="flex items-center justify-between mt-5">
@@ -197,20 +197,20 @@
 
                 <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Dijadwalkan pada</div>
-                    <div class="text-[#1E2B4F] font-medium">{{ date("d F Y",strtotime($appointment->date)) ?? '' }}</div>
+                    <div class="text-[#1E2B4F] font-medium">{{ date("d F Y",strtotime($ticket->date)) ?? '' }}</div>
                 </div>
 
                 <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Waktu</div>
-                    <div class="text-[#1E2B4F] font-medium">{{ date("H:i",strtotime($appointment->time)) ?? '' }}</div>
+                    <div class="text-[#1E2B4F] font-medium">{{ date("H:i",strtotime($ticket->time)) ?? '' }}</div>
                 </div>
 
                 <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Status</div>
                     <div class="text-[#1E2B4F] font-medium">
-                        @if ($appointment->status == 1)
+                        @if ($ticket->status == 1)
                             {{ 'Payment Completed' }}
-                        @elseif ($appointment->status == 2)
+                        @elseif ($ticket->status == 2)
                             {{ 'Waiting Payment' }}
                         @else
                             {{ 'N/A' }}
@@ -226,23 +226,23 @@
                 </h5>
 
                 <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">Biaya konsultasi</div>
-                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($appointment->doctor->specialist->price) ?? '' }}</div>
+                    <div class="text-[#AFAEC3] font-medium">Biaya Jenis Tiket</div>
+                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($ticket->event->price) ?? '' }}</div>
                 </div>
 
                 <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">Fee dokter</div>
-                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($appointment->doctor->fee) ?? '' }}</div>
+                    <div class="text-[#AFAEC3] font-medium">Price Event</div>
+                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($ticket->event->price) ?? '' }}</div>
                 </div>
 
-                <div class="flex items-center justify-between mt-5">
+                {{-- <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Fee hospital</div>
                     <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($config_payment->fee) ?? '' }}</div>
-                </div>
+                </div> --}}
 
                 <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">VAT {{ $config_payment->vat ?? '' }}%</div>
-                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($total_with_vat) ?? '' }}</div>
+                    <div class="text-[#AFAEC3] font-medium">pajak {{ $config_payment->pajak ?? '' }}%</div>
+                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($total_with_pajak) ?? '' }}</div>
                 </div>
 
                 <div class="flex items-center justify-between mt-5">
