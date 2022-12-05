@@ -9,15 +9,13 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 // request
-use App\Http\Requests\JenisTicket\StoreJenisTicketRequest;
-use App\Http\Requests\JenisTicket\UpdateJenisTicketRequest;
-
+use App\Http\Requests\JenisTiket\StoreJenisTiketRequest;
+use App\Http\Requests\JenisTiket\UpdatejenisTiketRequest as JenisTiketUpdatejenisTiketRequest;
 // use everything here
 use Illuminate\Auth\Access\Gate;
 use Auth;
 
 // use model here
-use App\Models\MasterData\Consultation;
 use App\Models\MasterData\JenisTiket;
 
 // thirdparty package
@@ -42,11 +40,11 @@ class JenisTiketController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('consultation_access'), 403, '403 Forbidden');
+        abort_if(Gate::denies('jenistiket_access'), 403, '403 Forbidden');
 
         $jenistiket = JenisTiket::orderBy('created_at', 'desc')->get();
 
-        return view('pages.backsite.master-data.consultation.index', compact('consultation'));
+        return view('pages.backsite.master-data.jenistiket.index', compact('jenistiket'));
     }
 
     /**
@@ -65,7 +63,7 @@ class JenisTiketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreJenisTicketRequest $request)
+    public function store(JenisTiket $request)
     {
         // get all request from frontsite
         $data = $request->all();
@@ -110,7 +108,7 @@ class JenisTiketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateJenisTicketRequest $request, JenisTiket $jenistiket)
+    public function update(JenisTiketUpdatejenisTiketRequest $request, JenisTiket $jenistiket)
     {
         // get all request from frontsite
         $data = $request->all();
