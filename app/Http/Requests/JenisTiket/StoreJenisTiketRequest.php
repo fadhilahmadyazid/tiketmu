@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Consultation;
+namespace App\Http\Requests\JenisTiket;
 
 use App\Models\MasterData\Consultation;
+use App\Models\MasterData\JenisTiket;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ class StoreJenisTiketRequest extends FormRequest
      */
     public function authorize()
     {
-        abort_if(Gate::denies('consultation_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('consultation_create'), 403, '403 Forbidden');
 
         return true;
     }
