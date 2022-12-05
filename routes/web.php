@@ -15,10 +15,11 @@ use App\Http\Controllers\Backsite\RoleController;
 use App\Http\Controllers\Backsite\UserController;
 use App\Http\Controllers\Backsite\TypeUserController;
 use App\Http\Controllers\Backsite\ConfigPaymentController;
+use App\Http\Controllers\Backsite\JenisTiketController;
 use App\Http\Controllers\Backsite\EventController;
 use App\Http\Controllers\Backsite\ReportTicketController;
 use App\Http\Controllers\Backsite\ReportTransactionController;
-
+// use App\Models\MasterData\JenisTiket;
 use Faker\Provider\ar_EG\Payment;
 
 /*
@@ -72,6 +73,9 @@ Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['aut
 
     // config payment
     Route::resource('config_payment', ConfigPaymentController::class);
+
+    // jenis tiket
+    Route::resource('jenistiket', JenisTiketController::class);
 
     // event
     Route::resource('event', EventController::class);
