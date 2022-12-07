@@ -12,7 +12,7 @@ $(function () {
   // variables
   var appContent = $(".app-content"),
     appContentOverlay = $(".app-content-overlay"),
-    sideBarLeft = $(".sidebar-left"),
+    sidFeBarLeft = $(".sidebar-left"),
     email_app_details = $(".email-app-details"),
     email_application = $(".email-application"),
     userNewMailSideBar = $(".compose-new-mail-sidebar"),

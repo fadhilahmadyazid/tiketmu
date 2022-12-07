@@ -8,10 +8,9 @@
 ==========================================================================================*/
 
 /************************************
-*       js of alt pagination        *
-************************************/
+ *       js of alt pagination        *
+ ************************************/
 
-$('.alt-pagination').DataTable( {
-    "pagingType": "full_numbers"
+$(".alt-pagination").DataTable({
+    pagingType: "full_numbers",
 });
-
