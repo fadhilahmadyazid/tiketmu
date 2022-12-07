@@ -19,8 +19,9 @@ use App\Http\Controllers\Backsite\JenisTiketController;
 use App\Http\Controllers\Backsite\EventController;
 use App\Http\Controllers\Backsite\ReportTicketController;
 use App\Http\Controllers\Backsite\ReportTransactionController;
-// use App\Models\MasterData\JenisTiket;
-use Faker\Provider\ar_EG\Payment;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +37,6 @@ use Faker\Provider\ar_EG\Payment;
 route::resource('/',LandingController::class);
 route::group([ 'middleware' => ['auth:sanctum', 'verified']], function()
     {
-    //return view('dashboard');
-
     // ticket page
     route::get('ticket/event/{id}', [TicketController::class, 'ticket'])->name('ticket.event');
     route::resource('ticket', TicketController::class);
