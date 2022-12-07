@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\JenisTiket;
 
-use App\Models\MasterData\Consultation;
 use App\Models\MasterData\JenisTiket;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Http\FormRequest;
@@ -17,7 +16,7 @@ class StoreJenisTiketRequest extends FormRequest
      */
     public function authorize()
     {
-        abort_if(Gate::denies('consultation_create'), 403, '403 Forbidden');
+        abort_if(Gate::denies('jenistiket_create'), 403, '403 Forbidden');
 
         return true;
     }
@@ -31,7 +30,7 @@ class StoreJenisTiketRequest extends FormRequest
     {
         return [
             'name' => [
-                'required', 'string', 'max:255', 'unique:consultation',
+                'required', 'string', 'max:255', 'unique:jenistikets,name',
             ],
         ];
     }

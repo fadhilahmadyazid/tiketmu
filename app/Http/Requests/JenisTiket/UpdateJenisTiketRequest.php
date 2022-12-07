@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\JenisTiket;
 
-//use App\Models\MasterData\Consultation;
 use App\Models\MasterData\JenisTiket;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Http\FormRequest;
