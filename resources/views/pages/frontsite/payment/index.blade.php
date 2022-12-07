@@ -177,7 +177,7 @@
                 <h5 class="text-[#1E2B4F] text-lg font-semibold">Booking Your Ticket</h5>
                 <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Venue</div>
-                    <div class="text-[#1E2B4F] font-medium">{{ $appointment->jenistiket->name ?? '' }}</div>
+                    <div class="text-[#1E2B4F] font-medium">{{ $ticket->jenistiket->name ?? '' }}</div>
                 </div>
 
                 <div class="flex items-center justify-between mt-5">
@@ -352,12 +352,12 @@
 
                 <div class="mt-10 grid">
 
-                    <input type="hidden" name="appointment_id" value="{{ $id ?? '' }}">
+                    <input type="hidden" name="ticket_id" value="{{ $id ?? '' }}">
 
                     <!--
                     button when payment is filled.
                     -->
-                    <button type="submit" class="bg-[#0D63F3] text-white px-10 py-3 rounded-full text-center" x-show="payment.length" onclick="return confirm('Are you sure want to payment this appointment ?')">Pay Now</button>
+                    <button type="submit" class="bg-[#0D63F3] text-white px-10 py-3 rounded-full text-center" x-show="payment.length" onclick="return confirm('Are you sure want to payment this Ticket ?')">Pay Now</button>
 
                     <!--
                     button when payment is empty.

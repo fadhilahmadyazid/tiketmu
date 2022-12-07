@@ -25,8 +25,8 @@
 
                 <div class="flex flex-col justify-center py-14 h-full lg:min-h-screen">
                     <h2 class="text-[#1E2B4F] text-4xl font-semibold leading-normal">
-                        Improve Your <br />
-                        Event With Expert
+                        Get Ticket <br />
+                        And Enjoy your healing
                     </h2>
                     <div class="mt-12">
 

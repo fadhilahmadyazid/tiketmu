@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 {{-- set title --}}
-@section('title', 'Jenis-Tiket')
+@section('title', 'jenis-tiket')
 
 @section('content')
 

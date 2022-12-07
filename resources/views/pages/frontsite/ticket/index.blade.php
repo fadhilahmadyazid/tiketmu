@@ -56,7 +56,7 @@
                 </div>
             </div>
 
-            <!-- Form Appointment -->
+            <!-- Form Ticket -->
             <div class="lg:w-1/3 mt-10 lg:mt-0">
                 <h2 class="text-[#1E2B4F] text-3xl font-semibold leading-normal">
                     Apply for <br />
@@ -68,20 +68,20 @@
                     @csrf
 
                     <label class="block">
-                        <select
+                        {{-- <select
                             name="jenistiket_id"
                             id="jenistiket_id"
                             class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
-                            placeholder="Jenis Tiket" required
-                        >
+                            placeholder="Choose category ticket" required
+                        > --}}
 
-                            <option disabled selected class="hidden">
+                            {{-- <option disabled selected class="hidden">
                                 Jenis Tiket
                             </option>
 
                             @foreach ($jenistiket as $jenistiket_item)
                                 <option value="{{ $jenistiket_item->id }}">{{ $jenistiket_item->name }}</option>
-                            @endforeach
+                            @endforeach --}}
 
                         </select>
                     </label>

@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 {{-- set title --}}
-@section('title', 'Edit - Consultation')
+@section('title', 'Edit - Jenis Tiket')
+
+{{-- set breadcrumb --}}
 
 @section('content')
 <!-- BEGIN: Content-->
@@ -27,12 +29,12 @@
             {{-- breadcumb --}}
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-                    <h3 class="content-header-title mb-0 d-inline-block">Edit Consultation</h3>
+                    <h3 class="content-header-title mb-0 d-inline-block">Edit Jenis Tiket</h3>
                     <div class="row breadcrumbs-top d-inline-block">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">Dashboard</li>
-                                <li class="breadcrumb-item">Consultation</li>
+                                <li class="breadcrumb-item">Jenis Tiket</li>
                                 <li class="breadcrumb-item active">Edit</li>
                             </ol>
                         </div>
@@ -61,7 +63,7 @@
                                         <div class="card-text">
                                             <p>Please complete the input <code>required</code>, before you click the submit button.</p>
                                         </div>
-                                        <form class="form form-horizontal" action="{{ route("backsite.consultation.update", [$consultation->id]) }}" method="POST" enctype="multipart/form-data">
+                                        <form class="form form-horizontal" action="{{ route("backsite.jenisticket.update", [$jenistiket->id]) }}" method="POST" enctype="multipart/form-data">
 
                                                 @method('PUT')
                                                 @csrf
@@ -73,7 +75,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-md-3 label-control" for="name">Name <code style="color:red;">required</code></label>
                                                         <div class="col-md-9 mx-auto">
-                                                            <input type="text" id="name" name="name" class="form-control" placeholder="example sakit lambung or jantung sesak" value="{{ old('name', isset($consultation) ? $consultation->name : '') }}" autocomplete="off" required>
+                                                            <input type="text" id="name" name="name" class="form-control" placeholder="silver" value="{{ old('name', isset($jenistiket) ? $jenistiket->name : '') }}" autocomplete="off" required>
 
                                                             @if($errors->has('name'))
                                                                 <p style="font-style: bold; color: red;">{{ $errors->first('name') }}</p>
@@ -84,7 +86,7 @@
                                                 </div>
 
                                                 <div class="form-actions text-right">
-                                                    <a href="{{ route('backsite.consultation.index') }}" style="width:120px;" class="btn bg-blue-grey text-white mr-1" onclick="return confirm('Are you sure want to close this page? , Any changes you make will not be saved.')">
+                                                    <a href="{{ route('backsite.jenistiket.index') }}" style="width:120px;" class="btn bg-blue-grey text-white mr-1" onclick="return confirm('Are you sure want to close this page? , Any changes you make will not be saved.')">
                                                         <i class="ft-x"></i> Cancel
                                                     </a>
                                                     <button type="submit" style="width:120px;" class="btn btn-cyan" onclick="return confirm('Are you sure want to save this data ?')">
