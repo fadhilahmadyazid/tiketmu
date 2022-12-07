@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 
 // use library here
-use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,7 +19,7 @@ use App\Models\User;
 use App\Models\Operational\Event;
 use App\Models\Operational\Ticket;
 use App\Models\MasterData\JenisTiket;
-
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class TicketController extends Controller
 
@@ -41,8 +41,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        return abort(404);
-        //return view('pages.frontsite.ticket.index');
+        // return abort(404);
+        return view('pages.frontsite.ticket.index');
     }
 
     /**
@@ -68,10 +68,7 @@ class TicketController extends Controller
         $ticket = new Ticket();
         $ticket->event_id = $data['event_id'];
         $ticket->user_id = Auth::user()->id;
-        //$ticket->level = $data['level_id'];
         $ticket->jenistiket_id = $data['jenistiket_id'];
-        // $ticket->date = $data['date'];
-        // $ticket->time = $data['time'];
         $ticket->status = 2; // set to waiting payment
         $ticket->save();
 

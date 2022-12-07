@@ -20,7 +20,6 @@ use App\Models\Operational\Ticket;
 use App\Models\Operational\Event;
 use App\Models\Operational\Transaction;
 use App\Models\User;
-//use App\Models\MasterData\Consultation;
 
 // thirdparty package
 

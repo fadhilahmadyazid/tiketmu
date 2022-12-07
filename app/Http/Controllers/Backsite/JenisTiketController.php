@@ -44,7 +44,7 @@ class JenisTiketController extends Controller
 
         $jenistiket = JenisTiket::orderBy('created_at', 'desc')->get();
 
-        return view('pages.backsite.master-data.jenistiket.index', compact('jenistiket'));
+        return view('pages.backsite.master-data.jenis-tiket.index', compact('jenis-tiket'));
     }
 
     /**
@@ -72,7 +72,7 @@ class JenisTiketController extends Controller
         $jenistiket = JenisTiket::create($data);
 
         alert()->success('Success Message', 'Successfully added new Jenis Ticket');
-        return redirect()->route('backsite.jenisticket.index');
+        return redirect()->route('backsite.jenis-tiket.index');
     }
 
     /**
@@ -83,9 +83,9 @@ class JenisTiketController extends Controller
      */
     public function show(JenisTiket $jenistiket)
     {
-        abort_if(Gate::denies('consultation_show'), 403, '403 Forbidden');
+        abort_if(Gate::denies('jenis-tiket_show'), 403, '403 Forbidden');
 
-        return view('pages.backsite.master-data.consultation.show', compact('consultation'));
+        return view('pages.backsite.master-data.jenis-tiket.show', compact('jenis-tiket'));
     }
 
     /**
@@ -96,9 +96,9 @@ class JenisTiketController extends Controller
      */
     public function edit(JenisTiket $jenistiket)
     {
-        abort_if(Gate::denies('consultation_edit'), 403, '403 Forbidden');
+        abort_if(Gate::denies('jenistiket_edit'), 403, '403 Forbidden');
 
-        return view('pages.backsite.master-data.jenisticket.edit', compact('jenisticket'));
+        return view('pages.backsite.master-data.jenis-tiket.edit', compact('jenis-tiket'));
     }
 
     /**
@@ -117,7 +117,7 @@ class JenisTiketController extends Controller
         $jenistiket->update($data);
 
         alert()->success('Success Message', 'Successfully updated Jenis Ticket');
-        return redirect()->route('backsite.JenisTicket.index');
+        return redirect()->route('backsite.jenis-tiket.index');
     }
 
     /**
@@ -128,7 +128,7 @@ class JenisTiketController extends Controller
      */
     public function destroy(JenisTiket $jenistiket)
     {
-        abort_if(Gate::denies('consultation_delete'), 403, '403 Forbidden');
+        abort_if(Gate::denies('jenistiket_delete'), 403, '403 Forbidden');
 
         $jenistiket->forceDelete();
 
