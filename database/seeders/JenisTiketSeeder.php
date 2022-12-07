@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\MasterData\Consultation;
 use App\Models\MasterData\JenisTiket;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
