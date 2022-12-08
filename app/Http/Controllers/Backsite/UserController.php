@@ -17,7 +17,8 @@ use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 
 // use everything here
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
+// use Illuminate\Auth\Access\Gate;
 use Illuminate\Support\Facades\Auth;
 
 // use model here

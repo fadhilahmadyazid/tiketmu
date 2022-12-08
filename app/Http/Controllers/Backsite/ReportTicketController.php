@@ -12,7 +12,8 @@ use Spatie\FlareClient\Http\Response;
 use Illuminate\Support\Facades\Request;
 
 // use everything here
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
+// use Illuminate\Auth\Access\Gate;
 use Illuminate\Support\Facades\Auth;
 
 // use model here

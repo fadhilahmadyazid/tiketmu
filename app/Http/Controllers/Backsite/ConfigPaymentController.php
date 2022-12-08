@@ -14,12 +14,14 @@ use Illuminate\Console\View\Components\Alert;
 use App\Http\Requests\ConfigPayment\UpdateConfigPaymentRequest;
 
 // use everything here
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
+//use Illuminate\Auth\Access\Gate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 // use model here
 use App\Models\MasterData\ConfigPayment;
-use Illuminate\Support\Facades\Request as FacadesRequest;
+
 
 // thirdparty package
 

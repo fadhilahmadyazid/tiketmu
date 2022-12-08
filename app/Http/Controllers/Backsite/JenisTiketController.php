@@ -12,7 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Http\Requests\JenisTiket\StoreJenisTiketRequest;
 use App\Http\Requests\JenisTiket\UpdatejenisTiketRequest as JenisTiketUpdatejenisTiketRequest;
 // use everything here
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
+// use Illuminate\Auth\Access\Gate;
 use Auth;
 
 // use model here
