@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('ticket_id')->nullable()->index('fk_transaction_to_ticket');
             $table->string('price_event')->nullable();
-            //$table->string('fee_specialist')->nullable();
-            //$table->string('fee_hospital')->nullable();
             $table->string('sub_total')->nullable();
             $table->string('pajak')->nullable();
             $table->string('total')->nullable();

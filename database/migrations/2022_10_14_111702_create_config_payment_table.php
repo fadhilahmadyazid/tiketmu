@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('price')->nullable();
             $table->string('pajak')->nullable();
-            $table->string('total')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
