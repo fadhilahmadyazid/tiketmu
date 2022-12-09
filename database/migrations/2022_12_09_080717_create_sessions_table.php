@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('permission', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->timestamps();
+        Schema::create('sessions', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->foreignId('user_id')->nullable()->index();
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+            $table->longText('payload');
+            $table->integer('last_activity')->index();
             $table->softDeletes();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permission');
+        Schema::dropIfExists('session');
     }
 };
