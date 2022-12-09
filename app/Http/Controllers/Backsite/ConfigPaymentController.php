@@ -111,7 +111,7 @@ class ConfigPaymentController extends Controller
         // re format before push to table
         $data['price'] = str_replace(',', '', $data['price']);
         $data['price'] = str_replace('IDR ', '', $data['price']);
-        //$data['vat'] = str_replace(',', '', $data['vat']);
+        $data['pajak'] = str_replace(',', '', $data['pajak']);
 
         // update to database
         $config_payment->update($data);

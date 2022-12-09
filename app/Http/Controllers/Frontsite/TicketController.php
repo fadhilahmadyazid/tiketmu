@@ -42,8 +42,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        // return abort(404);
-        return view('pages.frontsite.ticket.index');
+        return abort(404);
+        //return view('pages.frontsite.ticket.index');
     }
 
     /**

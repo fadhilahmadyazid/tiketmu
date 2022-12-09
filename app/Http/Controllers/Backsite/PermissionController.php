@@ -6,14 +6,10 @@ use App\Http\Controllers\Controller;
 
 // use library here
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Response;
-// use Symfony\Component\HttpFoundation\Response;
-// use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Http\Request;
 
 // use everything here
 use Illuminate\Support\Facades\Gate;
-// use Illuminate\Auth\Access\Gate;
 use Illuminate\Support\Facades\Auth;
 
 // use model here
@@ -43,7 +39,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        // abort_if(Gate::denies('permission_access'), 403, '403 Forbidden');
+        abort_if(Gate::denies('permission_access'), 403, '403 Forbidden');
 
         $permission = Permission::orderBy('id', 'asc')->get();
 

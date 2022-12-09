@@ -64,7 +64,7 @@ class JenisTiketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(JenisTiket $request)
+    public function store(StoreJenisTiketRequest $request)
     {
         // get all request from frontsite
         $data = $request->all();
@@ -84,7 +84,7 @@ class JenisTiketController extends Controller
      */
     public function show(JenisTiket $jenistiket)
     {
-        abort_if(Gate::denies('jenis-tiket_show'), 403, '403 Forbidden');
+        abort_if(Gate::denies('jenistiket_show'), 403, '403 Forbidden');
 
         return view('pages.backsite.master-data.jenis-tiket.show', compact('jenis-tiket'));
     }

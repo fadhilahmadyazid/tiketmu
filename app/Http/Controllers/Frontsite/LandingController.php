@@ -36,9 +36,9 @@ class LandingController extends Controller
 
     public function index()
     {
-        toast('Your Post as been submited!','success');
+        // toast('Your Post as been submited!','success');
         $event = Event::orderBy('created_at', 'desc')->limit(4)->get();
-        return view('pages.frontsite.landing-page.index');
+        return view('pages.frontsite.landing-page.index', compact('event'));
     }
 
     /**

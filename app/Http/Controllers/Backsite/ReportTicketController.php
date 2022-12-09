@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 
 // use library here
 use Illuminate\Support\Facades\Storage;
-//use Symfony\Component\HttpFoundation\Response;
-//use Illuminate\Http\Response;
 use Spatie\FlareClient\Http\Response;
 use Illuminate\Support\Facades\Request;
 
@@ -51,7 +49,7 @@ class ReportTicketController extends Controller
             // for admin
             $ticket = ticket::orderBy('created_at', 'desc')->get();
         }else{
-            // other admin for doctor & patient ( task for everyone here )
+            // other admin for event & user ( task for everyone here )
             $ticket = ticket::orderBy('created_at', 'desc')->get();
         }
 
