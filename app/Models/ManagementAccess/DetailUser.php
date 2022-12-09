@@ -22,7 +22,7 @@ class DetailUser extends Model
 
     //declare filliable
     protected $fillable =[
-        'title',
+        'user_id',
         'type_user_id',
         'contact',
         'photo',

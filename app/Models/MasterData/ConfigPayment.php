@@ -22,7 +22,7 @@ class ConfigPayment extends Model
 
     //declare filliable
     protected $fillable =[
-        'fee',
+        'price',
         'pajak',
         'total',
         'created_at',

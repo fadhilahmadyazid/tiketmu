@@ -22,10 +22,10 @@ class Transaction extends Model
 
      //declare filliable
     protected $fillable =[
-         'email_user',
-         'nama_tiket',
-         'no_tiket',
-         'jenis_tiket',
+         'ticket_id',
+         'price_event',
+         'pajak',
+         'total',
          'created_at',
          'update_at',
          'deleted_at',
