@@ -18,17 +18,17 @@ class JenisTiketSeeder extends Seeder
         // create data here
         $jenistiket = [
             [
-                'name' => 'Jenis Tiket 1',
+                'name' => 'Silver',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'name' => 'Jenis Tiket 2',
+                'name' => 'Gold',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'name' => 'Jenis Tiket 3',
+                'name' => 'Diamond',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],

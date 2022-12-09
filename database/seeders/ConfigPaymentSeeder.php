@@ -18,22 +18,16 @@ class ConfigPaymentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ConfigPayment')->insert([
+         // create data here
+         $config_payment = [
+            [
             'price' => Str::random(10),
             'pajak' => Str::random(10),
-            'total' => Str::random(10),
-        ]);
-        //create data here
-        // $config_payment = [
-        // [
-        // fee   => '150000',
-        // pajak => '10', //Pajak dalam bentuk persen
-        // total => '',
-        // ],
-
-    // ];
-
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ],
+    ];
         //this array $spesialis will be insert to table 'configpayment'
-        // ConfigPayment::insert($config_payment);
+         ConfigPayment::insert($config_payment);
     }
 }
