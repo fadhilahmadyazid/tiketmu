@@ -16,11 +16,6 @@ class StoreEventRequest extends FormRequest
      * @return bool
      */
     public function authorize()
-    // {
-    //     abort_if(Gate::denies('event_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-    //     return true;
-    // }
     {
         abort_if(Gate::denies('event_create'), 403, '403 Forbidden');
 
@@ -35,9 +30,6 @@ class StoreEventRequest extends FormRequest
     public function rules()
     {
         return [
-            'ticket_id' => [
-                'required', 'integer',
-            ],
             'name' => [
                 'required', 'string', 'max:255',
             ],

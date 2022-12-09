@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Http\Requests\Role;
-use App\Models\ManagementAccess\Role;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Component\HttpFoundation\Response;
 // this rule only at update request
 use Illuminate\Validation\Rule;
 

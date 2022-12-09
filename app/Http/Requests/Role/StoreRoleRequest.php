@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests\Role;
 
-use App\Models\ManagementAccess\Role;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Component\HttpFoundation\Response;
 
 class StoreRoleRequest extends FormRequest
 {

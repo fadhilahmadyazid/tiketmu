@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests\JenisTiket;
 
-use App\Models\MasterData\JenisTiket;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Component\HttpFoundation\Response;
 
 // this rule only at update request
 use Illuminate\Validation\Rule;

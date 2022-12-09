@@ -27,9 +27,6 @@ class UpdateEventRequest extends FormRequest
     public function rules()
     {
         return [
-            'ticket_id' => [
-                'required', 'integer',
-            ],
             'name' => [
                 'required', 'string', 'max:255',
             ],

@@ -35,9 +35,6 @@ class UpdateConfigPaymentRequest extends FormRequest
             'pajak' => [
                 'required', 'string', 'max:255',
             ],
-            'total' => [
-                'required', 'string', 'max:255',
-            ],
         ];
     }
 }

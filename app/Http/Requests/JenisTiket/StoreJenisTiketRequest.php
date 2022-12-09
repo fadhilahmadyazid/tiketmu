@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests\JenisTiket;
 
-use App\Models\MasterData\JenisTiket;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Component\HttpFoundation\Response;
 
 class StoreJenisTiketRequest extends FormRequest
 {
@@ -30,7 +28,7 @@ class StoreJenisTiketRequest extends FormRequest
     {
         return [
             'name' => [
-                'required', 'string', 'max:255', 'unique:jenistikets,name',
+                'required', 'string', 'max:255', 'unique:jenistikets',
             ],
         ];
     }
