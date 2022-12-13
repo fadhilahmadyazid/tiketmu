@@ -94,7 +94,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-md-3 label-control" for="name">Name <code style="color:red;">required</code></label>
                                                         <div class="col-md-9 mx-auto">
-                                                            <input type="text" id="name" name="name" class="form-control" placeholder="example john doe or jane doe" value="{{old('name')}}" autocomplete="off" required>
+                                                            <input type="text" id="name" name="name" class="form-control" placeholder="example Padil doe or Yazidd doe" value="{{old('name')}}" autocomplete="off" required>
 
                                                             @if($errors->has('name'))
                                                                 <p style="font-style: bold; color: red;">{{ $errors->first('name') }}</p>
@@ -103,12 +103,12 @@
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <label class="col-md-3 label-control" for="fee">Fee <code style="color:red;">required</code></label>
+                                                        <label class="col-md-3 label-control" for="price">price <code style="color:red;">required</code></label>
                                                         <div class="col-md-9 mx-auto">
-                                                            <input type="text" id="fee" name="fee" class="form-control" placeholder="example fee 10000" value="{{old('fee')}}" autocomplete="off" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 0, 'digitsOptional': 0, 'prefix': 'IDR ', 'placeholder': '0'" required>
+                                                            <input type="text" id="price" name="price" class="form-control" placeholder="example price 10000" value="{{old('price')}}" autocomplete="off" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 0, 'digitsOptional': 0, 'prefix': 'IDR ', 'placeholder': '0'" required>
 
-                                                            @if($errors->has('fee'))
-                                                                <p style="font-style: bold; color: red;">{{ $errors->first('fee') }}</p>
+                                                            @if($errors->has('price'))
+                                                                <p style="font-style: bold; color: red;">{{ $errors->first('price') }}</p>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -130,6 +130,16 @@
                                                         </div>
                                                     </div>
 
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 label-control" for="description">Description <code style="color:red;">required</code></label>
+                                                        <div class="col-md-9 mx-auto">
+                                                            <input type="text" id="description" name="description" class="form-control" placeholder="Concert In Anniversary .... ....." value="{{old('description')}}" autocomplete="off" required>
+
+                                                            @if($errors->has('description'))
+                                                                <p style="font-style: bold; color: red;">{{ $errors->first('description') }}</p>
+                                                            @endif
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <div class="form-actions text-right">

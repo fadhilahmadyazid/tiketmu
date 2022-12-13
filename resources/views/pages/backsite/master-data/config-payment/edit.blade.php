@@ -71,23 +71,23 @@
                                                     <h4 class="form-section"><i class="fa fa-edit"></i> Form Config Payment</h4>
 
                                                     <div class="form-group row">
-                                                        <label class="col-md-3 label-control" for="fee">Fee <code style="color:red;">required</code></label>
+                                                        <label class="col-md-3 label-control" for="price">Price <code style="color:red;">required</code></label>
                                                         <div class="col-md-9 mx-auto">
-                                                            <input type="text" id="fee" name="fee" class="form-control" placeholder="example fee 10000" value="{{ old('fee', isset($config_payment) ? $config_payment->fee : '') }}" autocomplete="off" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 0, 'digitsOptional': 0, 'prefix': 'IDR ', 'placeholder': '0'" required>
+                                                            <input type="text" id="price" name="price" class="form-control" placeholder="example price 10000" value="{{ old('price', isset($config_payment) ? $config_payment->price : '') }}" autocomplete="off" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 0, 'digitsOptional': 0, 'prefix': 'IDR ', 'placeholder': '0'" required>
 
-                                                            @if($errors->has('fee'))
-                                                                <p style="font-style: bold; color: red;">{{ $errors->first('fee') }}</p>
+                                                            @if($errors->has('price'))
+                                                                <p style="font-style: bold; color: red;">{{ $errors->first('price') }}</p>
                                                             @endif
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <label class="col-md-3 label-control" for="vat">Vat <code style="color:red;">required</code></label>
+                                                        <label class="col-md-3 label-control" for="pajak">Pajak <code style="color:red;">required</code></label>
                                                         <div class="col-md-9 mx-auto">
-                                                            <input type="text" id="vat" name="vat" class="form-control" placeholder="example vat 10000" value="{{ old('vat', isset($config_payment) ? $config_payment->vat : '') }}" autocomplete="off" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 0, 'digitsOptional': 0, 'prefix': '', 'placeholder': '0'" required>
+                                                            <input type="text" id="pajak" name="pajak" class="form-control" placeholder="example pajak 10000" value="{{ old('pajak', isset($config_payment) ? $config_payment->pajak : '') }}" autocomplete="off" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 0, 'digitsOptional': 0, 'prefix': '', 'placeholder': '0'" required>
 
-                                                            @if($errors->has('vat'))
-                                                                <p style="font-style: bold; color: red;">{{ $errors->first('vat') }}</p>
+                                                            @if($errors->has('pajak'))
+                                                                <p style="font-style: bold; color: red;">{{ $errors->first('pajak') }}</p>
                                                             @endif
                                                         </div>
                                                     </div>

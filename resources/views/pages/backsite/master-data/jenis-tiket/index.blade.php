@@ -64,7 +64,7 @@
                                     <div class="card-content collapse hide">
                                         <div class="card-body card-dashboard">
 
-                                            <form class="form form-horizontal" action="{{ route('backsite.jenistiket.store') }}" method="POST" enctype="multipart/form-data">
+                                            <form class="form form-horizontal" action="{{ route('backsite.jenis-tiket.store') }}" method="POST" enctype="multipart/form-data">
 
                                                 @csrf
 
@@ -148,7 +148,7 @@
 
                                                                             @can('jenistiket_show')
                                                                                 <a href="#mymodal"
-                                                                                    data-remote="{{ route('backsite.jenistiket.show', $jenistiket_item->id) }}"
+                                                                                    data-remote="{{ route('backsite.jenis-tiket.show', $jenistiket_item->id) }}"
                                                                                     data-toggle="modal"
                                                                                     data-target="#mymodal"
                                                                                     data-title="jenistiket Detail"
@@ -158,13 +158,13 @@
                                                                             @endcan
 
                                                                             @can('jenistiket_edit')
-                                                                                <a class="dropdown-item" href="{{ route('backsite.jenistiket.edit', $jenistiket_item->id) }}">
+                                                                                <a class="dropdown-item" href="{{ route('backsite.jenis-tiket.edit', $jenistiket_item->id) }}">
                                                                                     Edit
                                                                                 </a>
                                                                             @endcan
 
                                                                             @can('jenistiket_delete')
-                                                                                <form action="{{ route('backsite.jenistiket.destroy', $jenistiket_item->id) }}" method="POST" onsubmit="return confirm('Are you sure want to delete this data ?');">
+                                                                                <form action="{{ route('backsite.jenis-tiket.destroy', $jenistiket_item->id) }}" method="POST" onsubmit="return confirm('Are you sure want to delete this data ?');">
                                                                                     <input type="hidden" name="_method" value="DELETE">
                                                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                                                     <input type="submit" class="dropdown-item" value="Delete">

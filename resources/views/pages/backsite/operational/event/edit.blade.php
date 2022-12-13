@@ -70,9 +70,9 @@
 
                                                     <h4 class="form-section"><i class="fa fa-edit"></i> Form Doctor</h4>
 
-                                                    {{-- <div class="form-group row {{ $errors->has('specialist_id') ? 'has-error' : '' }}">
+                                                    <div class="form-group row {{ $errors->has('specialist_id') ? 'has-error' : '' }}">
                                                         <label class="col-md-3 label-control">Specialist <code style="color:red;">required</code></label>
-                                                        <div class="col-md-9 mx-auto">
+                                                        {{-- <div class="col-md-9 mx-auto">
                                                             <select name="specialist_id"
                                                                     id="specialist_id"
                                                                     class="form-control select2" required>
@@ -85,8 +85,8 @@
                                                             @if($errors->has('specialist_id'))
                                                                 <p style="font-style: bold; color: red;">{{ $errors->first('specialist_id') }}</p>
                                                             @endif
-                                                        </div>
-                                                    </div> --}}
+                                                        </div> --}}
+                                                    </div>
 
                                                     <div class="form-group row">
                                                         <label class="col-md-3 label-control" for="name">Name <code style="color:red;">required</code></label>
