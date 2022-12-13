@@ -94,7 +94,7 @@ class EventController extends Controller
         // change file locations
         if(isset($data['cover'])){
             $data['cover'] = $request->file('cover')->store(
-                'assets/file-event', 'public'
+                'assets/file-event', 'public' //public berfungsi untuk sifat file bersifat general
             );
         }else{
             $data['cover'] = "";
