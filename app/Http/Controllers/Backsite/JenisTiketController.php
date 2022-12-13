@@ -45,7 +45,7 @@ class JenisTiketController extends Controller
 
         $jenistiket = JenisTiket::orderBy('created_at', 'desc')->get();
 
-        return view('pages.backsite.master-data.jenis-tiket.index', compact('jenis-tiket'));
+        return view('pages.backsite.master-data.jenis-tiket.index', compact('jenistiket'));
     }
 
     /**
@@ -73,7 +73,7 @@ class JenisTiketController extends Controller
         $jenistiket = JenisTiket::create($data);
 
         alert()->success('Success Message', 'Successfully added new Jenis Ticket');
-        return redirect()->route('backsite.jenis-tiket.index');
+        return redirect()->route('pages.backsite.master-data.jenis-tiket.index');
     }
 
     /**
@@ -86,7 +86,7 @@ class JenisTiketController extends Controller
     {
         abort_if(Gate::denies('jenistiket_show'), 403, '403 Forbidden');
 
-        return view('pages.backsite.master-data.jenis-tiket.show', compact('jenis-tiket'));
+        return view('pages.backsite.master-data.jenis-tiket.show', compact('jenistiket'));
     }
 
     /**
@@ -99,7 +99,7 @@ class JenisTiketController extends Controller
     {
         abort_if(Gate::denies('jenistiket_edit'), 403, '403 Forbidden');
 
-        return view('pages.backsite.master-data.jenis-tiket.edit', compact('jenis-tiket'));
+        return view('pages.backsite.master-data.jenis-tiket.edit', compact('jenistiket'));
     }
 
     /**
@@ -118,7 +118,7 @@ class JenisTiketController extends Controller
         $jenistiket->update($data);
 
         alert()->success('Success Message', 'Successfully updated Jenis Ticket');
-        return redirect()->route('backsite.jenis-tiket.index');
+        return redirect()->route('backsite.master-data.jenis-tiket.index');
     }
 
     /**
