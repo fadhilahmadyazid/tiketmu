@@ -12,7 +12,7 @@ class JenisTiket extends Model
     use SoftDeletes;
 
     // declare table
-    public $table = 'jenistiket';
+    public $table = 'jenis_tiket';
 
     // this field must type date yyyy-mm-dd hh:mm:ss
     protected $dates = [
