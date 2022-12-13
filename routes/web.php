@@ -74,7 +74,7 @@ Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['aut
     Route::resource('config_payment', ConfigPaymentController::class);
 
     // jenis tiket
-    Route::resource('jenistiket', JenisTiketController::class);
+    Route::resource('jenis-tiket', JenisTiketController::class);
 
     // event
     Route::resource('event', EventController::class);
