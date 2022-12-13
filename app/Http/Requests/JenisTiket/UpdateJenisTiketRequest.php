@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\JenisTiket;
 
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
 // this rule only at update request
@@ -31,7 +31,7 @@ class UpdatejenisTiketRequest extends FormRequest
     {
         return [
             'name' => [
-                'required', 'string', 'max:255', Rule::unique('jenistiket')->ignore($this->jenistiket),
+                'required', 'string', 'max:255', Rule::unique('jenis_tiket')->ignore($this->jenistiket),
             ],
         ];
     }

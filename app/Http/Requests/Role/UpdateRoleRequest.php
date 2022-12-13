@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests\Role;
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 // this rule only at update request
 use Illuminate\Validation\Rule;

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests\Event;
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
