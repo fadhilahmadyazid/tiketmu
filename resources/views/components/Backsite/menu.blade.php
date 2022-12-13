@@ -62,7 +62,7 @@
 
                         {{-- @can('jenistiket_access') --}}
                             <li class="{{ request()->is('backsite/jenistiket') || request()->is('backsite/jenistiket/*') || request()->is('backsite/*/jenistiket') || request()->is('backsite/*/jenistiket/*') ? 'active' : '' }} ">
-                                <a class="menu-item" href="{{ route('backsite.jenistiket.index') }}">
+                                <a class="menu-item" href="{{ route('backsite.jenis-tiket.index') }}">
                                     <i></i><span>Jenis Tiket</span>
                                 </a>
                             </li>
