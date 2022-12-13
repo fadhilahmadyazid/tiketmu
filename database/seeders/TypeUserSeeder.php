@@ -1,11 +1,12 @@
 <?php
 
 namespace Database\Seeders;
+
 use App\Models\MasterData\TypeUser;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Str;
 class TypeUserSeeder extends Seeder
 {
     /**
@@ -18,7 +19,7 @@ class TypeUserSeeder extends Seeder
 
         $type_user = [
             [
-                'name' => 'Admin',
+                'name' => 'Super Admin',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
