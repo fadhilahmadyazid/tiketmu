@@ -20,6 +20,7 @@ use App\Models\Operational\Event;
 use App\Models\Operational\Ticket;
 use App\Models\Operational\Transaction;
 use App\Models\MasterData\ConfigPayment;
+use App\Models\MasterData\JenisTiket;
 
 // thirdparty package
 
@@ -42,7 +43,8 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        return abort(404);
+        return view('pages.frontsite.payment.index');
+        // return abort(404);
     }
 
     /**
@@ -65,32 +67,32 @@ class PaymentController extends Controller
     {
         $data = $request->all();
 
-        $ticket = Ticket::where('id', $data['ticket_id'])->first();
-        $config_payment = ConfigPayment::first();
+        // $ticket = Ticket::where('id', $data['ticket_id'])->first();
+        // $config_payment = ConfigPayment::first();
 
-        // set transaction
-        $event_price = $ticket->event->price;
-        //$hospital_fee = $config_payment->fee;
+        // // set transaction
+        // $event_price = $ticket->event->price;
+        // //$hospital_fee = $config_payment->fee;
 
-        // total
-        $total = $event_price;   // total price ;
+        // // total
+        // $total = $event_price;   // total price ;
 
-        // total with vat and grand total
-        //$total_with_vat = ($total * $hospital_vat) / 100;
-        $grand_total = $total;
+        // // total with vat and grand total
+        // //$total_with_vat = ($total * $hospital_vat) / 100;
+        // $grand_total = $total;
 
-        // save to database
-        $transaction = new Transaction;
-        $transaction->ticket_id = $ticket['id'];
-        $transaction->price_event = $event_price;
-        $transaction->sub_total = $total;
-        $transaction->total = $grand_total;
-        $transaction->save();
+        // // save to database
+        // $transaction = new Transaction;
+        // $transaction->ticket_id = $ticket['id'];
+        // $transaction->price_event = $event_price;
+        // $transaction->sub_total = $total;
+        // $transaction->total = $grand_total;
+        // $transaction->save();
 
-        // update status ticket
-        $ticket = ticket::find($ticket->id);
-        $ticket->status = 1; // set to completed payment
-        $ticket->save();
+        // // update status ticket
+        // $ticket = Ticket::find($ticket->id);
+        // $ticket->status = 1; // set to completed payment
+        // $ticket->save();
 
         return redirect()->route('payment.success');
     }
@@ -114,7 +116,8 @@ class PaymentController extends Controller
      */
     public function edit($id)
     {
-        return abort(404);
+         return abort(404);
+
     }
 
     /**
@@ -145,7 +148,7 @@ class PaymentController extends Controller
 
     public function payment($id)
     {
-        $ticket = ticket::where('id', $id)->first();
+        $ticket = Ticket::where('id', $id)->first();
         $config_payment = ConfigPayment::first();
 
         // set value

@@ -102,16 +102,14 @@
                     <div class="relative">
                         <div class="relative top-0 -left-5 mb-7">
                             <img
-                                src="{{ asset('/assets/frontsite/images/blockqoutation.svg') }}"
+                                src="{{ asset('/assets/frontsite/images/petik.svg') }}"
                                 class="h-[30px]"
-                                alt=""
+                                alt="petik.svg"
                             />
                         </div>
 
                         <p class="text-2xl leading-loose">
-                        MeetDoctor telah membantu saya terhubung dengan dokter yang
-                        professional dan memberikan dampak yang sangat besar kepada
-                        kesehatan yang baik kepada saya
+                            EventQ its our my new aplication for event ticketing. I love it so much
                         </p>
 
                         <div class="flex-shrink-0 group block mt-7">
@@ -119,13 +117,13 @@
                                 <div class="ring-1 ring-[#0D63F3] ring-offset-4 rounded-full">
                                     <img
                                         class="inline-block h-14 w-14 rounded-full"
-                                        src="{{ asset('/assets/frontsite/images/patient-testimonial.png') }}"
+                                        src="{{ asset('/assets/frontsite/images/fadilframe.png') }}"
                                         alt=""
                                     />
                                 </div>
                                 <div class="ml-5">
-                                    <p class="font-medium text-[#1E2B4F]">Shayna</p>
-                                    <p class="text-sm text-[#AFAEC3]">Product Designer</p>
+                                    <p class="font-medium text-[#1E2B4F]">Fadhil Ahmad Yazid</p>
+                                    <p class="text-sm text-[#AFAEC3]">College Students</p>
                                 </div>
                             </div>
                         </div>

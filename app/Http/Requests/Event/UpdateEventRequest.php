@@ -37,7 +37,7 @@ class UpdateEventRequest extends FormRequest
                 'nullable', 'mimes:jpeg,svg,png', 'max:10000',
             ],
             'description' => [
-                'required', 'longtext', 'max:1000000',
+                'required', 'longtext',
             ],
             'location' => [
                 'required', 'string', 'max:255',

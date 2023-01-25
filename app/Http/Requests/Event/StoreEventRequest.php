@@ -37,10 +37,10 @@ class StoreEventRequest extends FormRequest
                 'required', 'string', 'max:255',
             ],
             'cover' => [
-                'nullable', 'mimes:jpeg,svg,png', 'max:10000',
+                'nullable', 'mimes:jpeg,svg,png',
             ],
             'description' => [
-                'required', 'longtext', 'max:1000000',
+                'required',
             ],
             'location' => [
                 'required', 'string', 'max:255',

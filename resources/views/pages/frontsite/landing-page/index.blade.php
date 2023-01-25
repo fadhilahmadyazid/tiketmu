@@ -9,6 +9,10 @@
     <!-- Hero -->
     <section class="relative mt-12">
         <!-- Hero Image -->
+
+        <!-- Favicons -->
+        {{-- <link rel="icon" href="{{ url('/assets/frontsite/images/Group 55.png') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url('css/style.css') }}"> --}}
         <div
           class="hidden lg:block lg:absolute lg:z-10 lg:top-0 lg:right-0"
           aria-hidden="true">

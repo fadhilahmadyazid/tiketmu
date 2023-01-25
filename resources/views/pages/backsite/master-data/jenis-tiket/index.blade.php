@@ -76,7 +76,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-md-3 label-control" for="name">Name <code style="color:red;">required</code></label>
                                                         <div class="col-md-9 mx-auto">
-                                                            <input type="text" id="name" name="name" class="form-control" placeholder="example sakit lambung or jantung sesak" value="{{old('name')}}" autocomplete="off" required>
+                                                            <input type="text" id="name" name="name" class="form-control" placeholder="example Silver, Diamond or Gold" value="{{old('name')}}" autocomplete="off" required>
 
                                                             @if($errors->has('name'))
                                                                 <p style="font-style: bold; color: red;">{{ $errors->first('name') }}</p>

@@ -21,17 +21,20 @@ use App\Http\Requests\Event\UpdateEventRequest;
 use Illuminate\Support\Facades\Gate;
 // use Illuminate\Auth\Access\Gate;
 use Illuminate\Support\Facades\Auth;
+//use Illuminate\Auth\Events\Validator;
+use Illuminate\Validation\Validator;
 
 //use Symfony\Component\HttpFoundation\File\File;
 
 // use model here
 use App\Models\Operational\Event;
-
+use App\Traits\ImageStore;
 
 // thirdparty package
 
 class EventController extends Controller
 {
+    use ImageStore;
     /**
      * Create a new controller instance.
      *
@@ -86,16 +89,14 @@ class EventController extends Controller
         $data['price'] = str_replace('IDR ', '', $data['price']);
 
         // upload process here
-        $path = public_path('app/public/assets/file-event');
-        if(!Storage::isDirectory($path)){
-            $response = Storage::makeDirectory('public/assets/file-event');
-        }
+        // $path = public_path('app/public/assets/file-event');
+        // if(!Storage::exists($path)){
+        //     $response = Storage::makeDirectory('public/assets/file-event');
+        // }
 
         // change file locations
-        if(isset($data['cover'])){
-            $data['cover'] = $request->file('cover')->store(
-                'assets/file-event', 'public' //public berfungsi untuk sifat file bersifat general
-            );
+        if($request->file('cover')){
+            $data['cover'] = $this->getPathFile($request->file('cover'), 'file-event');
         }else{
             $data['cover'] = "";
         }

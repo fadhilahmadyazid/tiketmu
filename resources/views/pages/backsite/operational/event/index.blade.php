@@ -114,17 +114,17 @@
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <label class="col-md-3 label-control" for="photo">Photo <code style="color:red;">required</code></label>
+                                                        <label class="col-md-3 label-control" for="cover">Cover Event <code style="color:red;">required</code></label>
                                                         <div class="col-md-9 mx-auto">
                                                             <div class="custom-file">
-                                                                <input type="file" accept="image/png, image/svg, image/jpeg" class="custom-file-input" id="photo" name="photo" required>
-                                                                <label class="custom-file-label" for="photo" aria-describedby="photo">Choose File</label>
+                                                                <input type="file" accept="image/png, image/svg, image/jpeg" class="custom-file-input" id="cover" name="cover" required>
+                                                                <label class="custom-file-label" for="photo" aria-describedby="cover">Choose File</label>
                                                             </div>
 
                                                             <p class="text-muted"><small class="text-danger">Hanya dapat mengunggah 1 file</small><small> dan yang dapat digunakan JPEG, SVG, PNG & Maksimal ukuran file hanya 10 MegaBytes</small></p>
 
-                                                            @if($errors->has('photo'))
-                                                                <p style="font-style: bold; color: red;">{{ $errors->first('photo') }}</p>
+                                                            @if($errors->has('cover'))
+                                                                <p style="font-style: bold; color: red;">{{ $errors->first('cover') }}</p>
                                                             @endif
 
                                                         </div>
@@ -137,6 +137,17 @@
 
                                                             @if($errors->has('description'))
                                                                 <p style="font-style: bold; color: red;">{{ $errors->first('description') }}</p>
+                                                            @endif
+                                                       </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 label-control" for="location">Location <code style="color:red;">required</code></label>
+                                                        <div class="col-md-9 mx-auto">
+                                                            <input type="text" id="location" name="location" class="form-control" placeholder="" value="{{old('location')}}" autocomplete="off" required>
+
+                                                            @if($errors->has('location'))
+                                                                <p style="font-style: bold; color: red;">{{ $errors->first('location') }}</p>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -190,6 +201,8 @@
                                                             <th>Name</th>
                                                             <th>Price</th>
                                                             <th>Photo</th>
+                                                            <th>Description</th>
+                                                            <th>Location</th>
                                                             <th style="text-align:center; width:150px;">Action</th>
                                                         </tr>
                                                     </thead>
@@ -200,7 +213,7 @@
                                                                 {{-- <td>{{ $event_item->specialist->name ?? '' }}</td> --}}
                                                                 <td>{{ $event_item->name ?? '' }}</td>
                                                                 <td>{{ 'IDR '.number_format($event_item->price) ?? '' }}</td>
-                                                                <td><a data-fancybox="gallery" data-src="{{ request()->getSchemeAndHttpHost().'/storage'.'/'.$event_item->photo }}" class="blue accent-4">Show</a></td>
+                                                                <td><a data-fancybox="gallery" data-src="{{ asset('storage/'.$event_item->cover) }}" class="blue accent-4">Show</a></td>
                                                                 <td class="text-center">
 
                                                                     <div class="btn-group mr-1 mb-1">

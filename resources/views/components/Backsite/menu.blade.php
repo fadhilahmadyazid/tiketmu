@@ -109,7 +109,7 @@
 
                         {{-- @can('ticket_access') --}}
                             <li class="{{ request()->is('backsite/ticket') || request()->is('backsite/ticket/*') || request()->is('backsite/*/ticket') || request()->is('backsite/*/ticket/*') ? 'active' : '' }} ">
-                                <a class="menu-item" href="{{ route('backsite.ticket.index') }}">
+                                <a class="menu-item" href="{{ route('backsite.tiket.index') }}">
                                     <i></i><span>Ticket</span>
                                 </a>
                             </li>

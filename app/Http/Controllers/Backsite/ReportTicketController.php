@@ -47,13 +47,13 @@ class ReportTicketController extends Controller
 
         if($type_user_condition == 1){
             // for admin
-            $ticket = ticket::orderBy('created_at', 'desc')->get();
+            $ticket = Ticket::orderBy('created_at', 'desc')->get();
         }else{
             // other admin for event & user ( task for everyone here )
-            $ticket = ticket::orderBy('created_at', 'desc')->get();
+            $ticket = Ticket::orderBy('created_at', 'desc')->get();
         }
 
-        return view('pages.backsite.operational.ticket.index', compact('ticket'));
+        return view('pages.backsite.operational.Ticket.index', compact('ticket'));
     }
 
     /**

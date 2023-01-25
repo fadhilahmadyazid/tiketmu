@@ -2,7 +2,7 @@
 
 @section('title', 'ticket')
 
-@section('content')
+@section('content') 
 
     <!-- Content -->
     <div class="min-h-screen">

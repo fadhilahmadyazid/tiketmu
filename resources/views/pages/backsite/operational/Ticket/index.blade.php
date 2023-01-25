@@ -69,9 +69,7 @@
                                                         <tr>
                                                             <th>Date</th>
                                                             <th>Event</th>
-                                                            {{-- <th>Patient</th> --}}
-                                                            <th>Jenis Tiket</th>
-                                                            {{-- <th>Level</th> --}}
+                                                            <th>Jenis Tiket</th
                                                             <th>Date</th>
                                                             <th>Time</th>
                                                             <th>Status</th>
@@ -113,9 +111,7 @@
                                                         <tr>
                                                             <th>Date</th>
                                                             <th>Event</th>
-                                                            <th>Patient</th>
                                                             <th>Jenis Ticket</th>
-                                                            {{-- <th>Level</th> --}}
                                                             <th>Date</th>
                                                             <th>Time</th>
                                                             <th>Status</th>

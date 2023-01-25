@@ -32,7 +32,7 @@
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">Dashboard</li>
-                                <li class="breadcrumb-item">Doctor</li>
+                                <li class="breadcrumb-item">Event</li>
                                 <li class="breadcrumb-item active">Edit</li>
                             </ol>
                         </div>
@@ -72,7 +72,7 @@
 
                                                     <div class="form-group row {{ $errors->has('specialist_id') ? 'has-error' : '' }}">
                                                         <label class="col-md-3 label-control">Specialist <code style="color:red;">required</code></label>
-                                                        {{-- <div class="col-md-9 mx-auto">
+                                                        <div class="col-md-9 mx-auto">
                                                             <select name="specialist_id"
                                                                     id="specialist_id"
                                                                     class="form-control select2" required>
@@ -85,7 +85,7 @@
                                                             @if($errors->has('specialist_id'))
                                                                 <p style="font-style: bold; color: red;">{{ $errors->first('specialist_id') }}</p>
                                                             @endif
-                                                        </div> --}}
+                                                        </div>
                                                     </div>
 
                                                     <div class="form-group row">

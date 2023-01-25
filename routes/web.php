@@ -40,7 +40,6 @@ route::group([ 'middleware' => ['auth:sanctum', 'verified']], function()
     // ticket page
     route::get('ticket/event/{id}', [TicketController::class, 'ticket'])->name('ticket.event');
     route::resource('ticket', TicketController::class);
-
     //Payment page
     Route::controller(PaymentController::class)->group(function() {
         Route::get('payment/success', 'success')->name('payment.success');
@@ -80,7 +79,7 @@ Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['aut
     Route::resource('event', EventController::class);
 
     // report ticket
-    Route::resource('ticket', ReportTicketController::class);
+    Route::resource('tiket', ReportTicketController::class);
 
     // report transaction
     Route::resource('transaction', ReportTransactionController::class);

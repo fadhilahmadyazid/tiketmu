@@ -22,6 +22,8 @@ use App\Models\Operational\Ticket;
 use App\Models\MasterData\JenisTiket;
 use Illuminate\Support\Facades\Request as FacadesRequest;
 
+// use Ramsey\Uuid\uuid;
+
 class TicketController extends Controller
 
 {
@@ -42,8 +44,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        return abort(404);
-        //return view('pages.frontsite.ticket.index');
+        //return abort(404);
+        return view('pages.frontsite.ticket.index');
     }
 
     /**
@@ -65,6 +67,10 @@ class TicketController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        //set uuid
+        // $uuid = Uuid::uuid4()->toString();
+        // $data['uuid'] = $uuid;
 
         $ticket = new Ticket();
         $ticket->event_id = $data['event_id'];

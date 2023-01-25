@@ -13,7 +13,7 @@
             <!-- Event Information -->
             <div class="flex flex-wrap items-center space-x-5">
                 <div class="flex-shrink-0">
-                    <img src="{{ url(Storage::url($ticket)) ?? '' }}" class="w-20 h-20 rounded-full bg-center object-cover object-top" alt="event 1"/>
+                    <img src="{{ asset('assets/frontsite/images/event2.png') }}" class="w-20 h-20 rounded-full bg-center object-cover object-top" alt="event 1"/>
                 </div>
 
                 <div class="flex-1 space-y-1">
@@ -172,7 +172,7 @@
                 </div>
             </div>
 
-            <!-- Appoinment Information -->
+            <!-- ticket Information -->
             <div class="mt-16">
                 <h5 class="text-[#1E2B4F] text-lg font-semibold">Booking Your Ticket</h5>
                 <div class="flex items-center justify-between mt-5">
@@ -183,7 +183,8 @@
                 <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Level</div>
                     <div class="text-[#1E2B4F] font-medium">
-                        @if ($ticket->level == 1)
+                        Gold
+                        {{-- @if ($ticket->level == 1)
                             {{ 'silver' }}
                         @elseif ($ticket->level == 2)
                             {{ 'Gold' }}
@@ -191,30 +192,31 @@
                             {{ 'Diamond' }}
                         @else
                             {{ 'N/A' }}
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
 
-                <div class="flex items-center justify-between mt-5">
+                {{-- <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Dijadwalkan pada</div>
                     <div class="text-[#1E2B4F] font-medium">{{ date("d F Y",strtotime($ticket->date)) ?? '' }}</div>
-                </div>
+                </div> --}}
 
-                <div class="flex items-center justify-between mt-5">
+                {{-- <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Waktu</div>
                     <div class="text-[#1E2B4F] font-medium">{{ date("H:i",strtotime($ticket->time)) ?? '' }}</div>
-                </div>
+                </div> --}}
 
                 <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Status</div>
                     <div class="text-[#1E2B4F] font-medium">
-                        @if ($ticket->status == 1)
+                        Payment Completed
+                        {{-- @if ($ticket->status == 1)
                             {{ 'Payment Completed' }}
                         @elseif ($ticket->status == 2)
                             {{ 'Waiting Payment' }}
                         @else
                             {{ 'N/A' }}
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
             </div>
@@ -227,12 +229,14 @@
 
                 <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Biaya Jenis Tiket</div>
-                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($ticket->event->price) ?? '' }}</div>
+                    {{-- <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($ticket->event->price) ?? '' }}</div> --}}
+                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format(50000) ?? '' }}</div>
                 </div>
 
                 <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Price Event</div>
-                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($ticket->event->price) ?? '' }}</div>
+                    {{-- <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($ticket->event->price) ?? '' }}</div> --}}
+                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format(300000) ?? '' }}</div>
                 </div>
 
                 {{-- <div class="flex items-center justify-between mt-5">
@@ -241,13 +245,16 @@
                 </div> --}}
 
                 <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">pajak {{ $config_payment->pajak ?? '' }}%</div>
-                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($total_with_pajak) ?? '' }}</div>
+                    {{-- <div class="text-[#AFAEC3] font-medium">pajak {{ $config_payment->pajak ?? '' }}%</div>
+                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format($total_with_pajak) ?? '' }}</div> --}}
+                    <div class="text-[#AFAEC3] font-medium">pajak 5%</div>
+                    <div class="text-[#1E2B4F] font-medium">{{ 'IDR '.number_format(15000) ?? '' }}</div>
                 </div>
 
                 <div class="flex items-center justify-between mt-5">
                     <div class="text-[#AFAEC3] font-medium">Grand total</div>
-                    <div class="text-[#2AB49B] font-semibold">{{ 'IDR '.number_format($grand_total) ?? '' }}</div>
+                    {{-- <div class="text-[#2AB49B] font-semibold">{{ 'IDR '.number_format($grand_total) ?? '' }}</div> --}}
+                    <div class="text-[#2AB49B] font-semibold">{{ 'IDR '.number_format(365000) ?? '' }}</div>
                 </div>
             </div>
         </div>
